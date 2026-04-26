@@ -101,6 +101,65 @@
       border: 1px solid var(--line);
     }
 
+
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .site-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .site-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 950;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 850;
+    }
+
+    .site-nav a {
+      color: var(--text);
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active {
+      color: var(--primary);
+    }
+
     .hero {
       background:
         radial-gradient(circle at 82% 8%, rgba(255, 176, 31, 0.24), transparent 30%),
@@ -386,7 +445,7 @@
     }
 
     .list li::before {
-      content: "✓";
+      content: "鉁?";
       position: absolute;
       left: 0;
       top: 0;
@@ -546,6 +605,22 @@
     }
 
     @media (max-width: 640px) {
+
+      .site-header-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        width: 100%;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
       .container {
         width: min(var(--max), calc(100% - 24px));
       }
@@ -605,6 +680,22 @@
 
 <body>
   <div class="page-wrap">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-logo" href="index.html" aria-label="HC Freight Home">
+          <span class="site-logo-mark">HC</span>
+          <span>HC Freight</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="tracking.html">Tracking</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
     <section class="hero" id="quote">
       <div class="container hero-grid">
         <div>
@@ -620,10 +711,10 @@
           </div>
 
           <div class="hero-points">
-            <div class="point"><span class="check">✓</span>DDP tax included</div>
-            <div class="point"><span class="check">✓</span>Customs clearance handled</div>
-            <div class="point"><span class="check">✓</span>Air, sea and express options</div>
-            <div class="point"><span class="check">✓</span>Amazon FBA support</div>
+            <div class="point"><span class="check">鉁?</span>DDP tax included</div>
+            <div class="point"><span class="check">鉁?</span>Customs clearance handled</div>
+            <div class="point"><span class="check">鉁?</span>Air, sea and express options</div>
+            <div class="point"><span class="check">鉁?</span>Amazon FBA support</div>
           </div>
         </div>
 
@@ -688,9 +779,9 @@
         </div>
 
         <div class="stats">
-          <div class="stat-card"><strong>3–7</strong><span>days express option</span></div>
-          <div class="stat-card"><strong>8–15</strong><span>days air DDP option</span></div>
-          <div class="stat-card"><strong>20–60</strong><span>days sea DDP option</span></div>
+          <div class="stat-card"><strong>3鈥?7</strong><span>days express option</span></div>
+          <div class="stat-card"><strong>8鈥?15</strong><span>days air DDP option</span></div>
+          <div class="stat-card"><strong>20鈥?60</strong><span>days sea DDP option</span></div>
           <div class="stat-card"><strong>DDP</strong><span>customs & taxes handled</span></div>
         </div>
       </div>
@@ -707,7 +798,7 @@
           <article class="service-card featured">
             <span class="tag">Best balance</span>
             <h3>Air Freight DDP</h3>
-            <div class="time">8–15 days</div>
+            <div class="time">8鈥?15 days</div>
             <p>Fast door-to-door shipping for e-commerce orders, medium-size cargo and urgent restocking.</p>
             <ul class="list">
               <li>Suitable for urgent cargo and online sellers</li>
@@ -721,7 +812,7 @@
           <article class="service-card">
             <span class="tag">Cost-effective</span>
             <h3>Sea Freight DDP</h3>
-            <div class="time">20–60 days</div>
+            <div class="time">20鈥?60 days</div>
             <p>Lower-cost option for bulk cargo, wholesalers, large shipments and Amazon FBA inventory.</p>
             <ul class="list">
               <li>Good for heavy or large-volume shipments</li>
@@ -735,7 +826,7 @@
           <article class="service-card">
             <span class="tag">Fastest</span>
             <h3>Express Shipping</h3>
-            <div class="time">3–7 days</div>
+            <div class="time">3鈥?7 days</div>
             <p>Priority delivery for samples, small parcels, time-sensitive goods and important documents.</p>
             <ul class="list">
               <li>Best for samples and small urgent parcels</li>
@@ -962,6 +1053,7 @@
 
     const WHATSAPP_NUMBER = '8619564380551';
     const EMAIL_ADDRESS = 'inkovnoah@gmail.com';
+    const THANK_YOU_URL = 'thank-you.html';
 
     function setMethod(method) {
       const methodSelect = document.getElementById('method');
@@ -981,9 +1073,8 @@
         gtag('event', 'quote_contact_click', {
           contact_method: method,
           form_name: 'china_to_usa_ddp_quote',
-          page_location: 'https://www.doorhc.com/china-to-usa-shipping',
+          page_location: window.location.href,
           transport_type: 'beacon',
-          debug_mode: true,
           event_callback: done
         });
 
@@ -1010,50 +1101,42 @@
         `Preferred method: ${method}`,
         `Cargo type: ${cargoType || 'Not provided'}`,
         `Cargo details: ${details}`
-      ].join('\n');
+      ].join('
+');
     }
 
-    const THANK_YOU_URL = 'https://www.doorhc.com/thank-you-page';
+    function goToThankYouPage() {
+      setTimeout(function () {
+        window.location.href = THANK_YOU_URL;
+      }, 500);
+    }
 
-function goToThankYouPage() {
-  setTimeout(function () {
-    window.open(THANK_YOU_URL, '_top');
-  }, 500);
-}
+    function sendWhatsAppQuote(event) {
+      event.preventDefault();
 
-function sendWhatsAppQuote(event) {
-  event.preventDefault();
+      const form = event.target;
+      if (!form.reportValidity()) return;
 
-  const form = event.target;
-  if (!form.reportValidity()) return;
+      const text = encodeURIComponent(buildQuoteText());
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-  const text = encodeURIComponent(buildQuoteText());
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+      trackContact('whatsapp', function () {
+        window.open(whatsappUrl, '_blank');
+        goToThankYouPage();
+      });
+    }
 
-  window.open(whatsappUrl, '_blank');
-  goToThankYouPage();
-}
-
-function sendEmailQuote() {
-  const form = document.querySelector('form');
-  if (!form.reportValidity()) return;
-
-  const subject = encodeURIComponent('China to USA DDP Shipping Quote Request');
-  const body = encodeURIComponent(buildQuoteText());
-  const emailUrl = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
-
-  window.location.href = emailUrl;
-  goToThankYouPage();
-}
+    function sendEmailQuote() {
       const form = document.querySelector('form');
       if (!form.reportValidity()) return;
 
       const subject = encodeURIComponent('China to USA DDP Shipping Quote Request');
       const body = encodeURIComponent(buildQuoteText());
-      const url = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+      const emailUrl = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
 
       trackContact('email', function () {
-        window.location.href = url;
+        window.location.href = emailUrl;
+        goToThankYouPage();
       });
     }
   </script>
