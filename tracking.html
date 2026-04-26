@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --primary: #0a3d7c;
+      --primary-dark: #06234a;
+      --accent: #ffb01f;
+      --accent-dark: #e99b00;
+      --text: #142033;
+      --muted: #5b667a;
+      --soft: #f4f8fd;
+      --line: #dce6f2;
+      --white: #ffffff;
+      --green: #14845f;
+      --red: #b42318;
+      --shadow: 0 18px 48px rgba(10, 61, 124, 0.14);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    textarea {
+      font: inherit;
+    }
+
+    .page-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 82% 8%, rgba(255, 176, 31, 0.24), transparent 30%),
+        radial-gradient(circle at 12% 82%, rgba(10, 61, 124, 0.10), transparent 28%),
+        linear-gradient(135deg, #eef5ff 0%, #ffffff 54%, #f8fbff 100%);
+      padding: 64px 0 58px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(10, 61, 124, 0.08);
+      border: 1px solid rgba(10, 61, 124, 0.14);
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5.4vw, 68px);
+      max-width: 760px;
+    }
+
+    .hero-text {
+      margin: 20px 0 26px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 690px;
+    }
+
+    .badge-card {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.84);
+      font-weight: 850;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      background: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .tracking-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .tracking-card h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .tracking-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      color: var(--text);
+      outline: none;
+      background: #ffffff;
+      transition: border 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    textarea:focus {
+      border-color: rgba(10, 61, 124, 0.55);
+      box-shadow: 0 0 0 4px rgba(10, 61, 124, 0.08);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #182230;
+      box-shadow: 0 12px 24px rgba(255, 176, 31, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-blue {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(10, 61, 124, 0.22);
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid var(--line);
+    }
+
+    .status-box {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .status-box.show {
+      display: block;
+    }
+
+    .status-box.success {
+      color: var(--green);
+      background: rgba(20, 132, 95, 0.08);
+      border: 1px solid rgba(20, 132, 95, 0.16);
+    }
+
+    .status-box.error {
+      color: var(--red);
+      background: rgba(180, 35, 24, 0.08);
+      border: 1px solid rgba(180, 35, 24, 0.16);
+    }
+
+    .microcopy {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .bg-soft {
+      background: var(--soft);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(31px, 4vw, 46px);
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .help-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(20, 32, 51, 0.06);
+      padding: 24px;
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #ffffff;
+      background: var(--primary);
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .help-card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .help-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .faq {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-band h2 {
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .contact-band p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 680px;
+    }
+
+    .mobile-bottom {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .help-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding: 40px 0 38px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .hero-badges,
+      .help-grid,
+      .button-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tracking-card,
+      .help-card,
+      .contact-band {
+        padding: 22px;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .mobile-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 999;
+        padding: 8px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid var(--line);
+        box-shadow: 0 14px 34px rgba(20,32,51,0.18);
+      }
+
+      .mobile-bottom .btn {
+        padding: 11px 8px;
+        min-height: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">HC Freight Shipment Tracking</div>
+          <h1>Track your shipment from China to final delivery.</h1>
+          <p class="hero-text">
+            Enter your HC Freight tracking number below. You can track up to 10 shipments at once. The tracking result will open in a new 17TRACK window.
+          </p>
+
+          <div class="hero-badges">
+            <div class="badge-card"><span class="check">✓</span>Supports multiple tracking numbers</div>
+            <div class="badge-card"><span class="check">✓</span>Global shipment tracking</div>
+            <div class="badge-card"><span class="check">✓</span>Air, sea and express updates</div>
+            <div class="badge-card"><span class="check">✓</span>WhatsApp support if no update appears</div>
+          </div>
+        </div>
+
+        <aside class="tracking-card">
+          <h2>Track Your Shipment</h2>
+          <p>Enter one tracking number per line, or separate numbers by commas or spaces.</p>
+
+          <label for="trackingNumbers">
+            Tracking numbers
+            <textarea id="trackingNumbers" placeholder="Example:\1Z0368FC0306991805"></textarea>
+          </label>
+
+          <div class="button-row">
+            <button class="btn btn-primary" type="button" onclick="trackShipment()">Track Now</button>
+            <button class="btn btn-light" type="button" onclick="clearTracking()">Clear</button>
+          </div>
+
+          <div id="statusBox" class="status-box"></div>
+
+          <div class="microcopy">Maximum 10 tracking numbers per search.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>How to use shipment tracking</h2>
+          <p>Tracking information may take time to update after pickup, customs clearance or transfer to a local delivery carrier.</p>
+        </div>
+
+        <div class="help-grid">
+          <div class="help-card">
+            <div class="icon-box">1</div>
+            <h3>Enter tracking number</h3>
+            <p>Copy your HC Freight tracking number into the box. You can enter multiple numbers at the same time.</p>
+          </div>
+          <div class="help-card">
+            <div class="icon-box">2</div>
+            <h3>Open tracking result</h3>
+            <p>Click Track Now. Your tracking details will open in a new 17TRACK window for shipment updates.</p>
+          </div>
+          <div class="help-card">
+            <div class="icon-box">3</div>
+            <h3>Need help?</h3>
+            <p>If tracking does not update, contact us with your tracking number and we will help check the shipment status.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-soft">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tracking FAQ</h2>
+          <p>Common questions when checking China-to-USA and international shipment updates.</p>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>Why is my tracking number not showing updates?</summary>
+            <p>Tracking updates may take time to appear after shipment pickup, warehouse processing, customs clearance or transfer to the final delivery carrier. Please check again later or contact us with your tracking number.</p>
+          </details>
+
+          <details>
+            <summary>How many tracking numbers can I check at once?</summary>
+            <p>You can enter up to 10 tracking numbers at once. Use one number per line, or separate numbers by commas or spaces.</p>
+          </details>
+
+          <details>
+            <summary>What should I do if the tracking result looks delayed?</summary>
+            <p>Some routes may have slower updates during customs clearance, flight/sea departure, port processing or local delivery transfer. Send us your tracking number and we can help check the status.</p>
+          </details>
+
+          <details>
+            <summary>Can I track air, sea and express shipments here?</summary>
+            <p>Yes. You can use this page to check tracking numbers for air freight, sea freight and express shipments handled by HC Freight.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="contact-band">
+          <div>
+            <h2>Need help with your tracking number?</h2>
+            <p>Send your tracking number to us by WhatsApp or email. We will help check the shipment status.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('tracking_whatsapp')">WhatsApp Us</a>
+          <a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('tracking_email')">Email Us</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="mobile-bottom">
+      <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('tracking_mobile_whatsapp')">WhatsApp</a>
+      <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com" onclick="trackContact('tracking_mobile_email')">Email Us</a>
+    </div>
+  </div>
+
+  <script>
+    const MAX_TRACKING_NUMBERS = 10;
+    const FORWARDER_CODE = '191909';
+
+    function parseTrackingNumbers(input) {
+      const rawNumbers = input
+        .split(/[\s,，;；]+/)
+        .map(function(number) {
+          return number.trim();
+        })
+        .filter(function(number) {
+          return number !== '';
+        });
+
+      const uniqueNumbers = [];
+      rawNumbers.forEach(function(number) {
+        if (!uniqueNumbers.includes(number)) {
+          uniqueNumbers.push(number);
+        }
+      });
+
+      return uniqueNumbers;
+    }
+
+    function showStatus(message, type) {
+      const statusBox = document.getElementById('statusBox');
+      statusBox.textContent = message;
+      statusBox.className = 'status-box show ' + type;
+    }
+
+    function trackShipment() {
+      const input = document.getElementById('trackingNumbers').value.trim();
+
+      if (!input) {
+        showStatus('Please enter at least one tracking number.', 'error');
+        return;
+      }
+
+      const numbers = parseTrackingNumbers(input);
+
+      if (numbers.length === 0) {
+        showStatus('Please enter at least one valid tracking number.', 'error');
+        return;
+      }
+
+      if (numbers.length > MAX_TRACKING_NUMBERS) {
+        showStatus('Maximum 10 tracking numbers allowed. Please remove extra numbers and try again.', 'error');
+        return;
+      }
+
+      const query = numbers.map(encodeURIComponent).join(',');
+      const url = 'https://t.17track.net/en#nums=' + query + '&fc=' + FORWARDER_CODE;
+
+      showStatus('Opening tracking result for ' + numbers.length + ' shipment(s)...', 'success');
+      trackContact('tracking_submit');
+      window.open(url, '_blank');
+    }
+
+    function clearTracking() {
+      document.getElementById('trackingNumbers').value = '';
+      const statusBox = document.getElementById('statusBox');
+      statusBox.textContent = '';
+      statusBox.className = 'status-box';
+    }
+
+    function trackContact(eventName) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: 'tracking_page'
+        });
+      }
+    }
+  </script>
+</body>
+</html>
