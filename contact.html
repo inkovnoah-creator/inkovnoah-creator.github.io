@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --primary: #0a3d7c;
+      --primary-dark: #06234a;
+      --accent: #ffb01f;
+      --accent-dark: #e99b00;
+      --text: #142033;
+      --muted: #5b667a;
+      --soft: #f4f8fd;
+      --soft-blue: #eef5ff;
+      --line: #dce6f2;
+      --white: #ffffff;
+      --green: #14845f;
+      --shadow: 0 18px 48px rgba(10, 61, 124, 0.14);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #182230;
+      box-shadow: 0 12px 24px rgba(255, 176, 31, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-blue {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(10, 61, 124, 0.22);
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 82% 8%, rgba(255, 176, 31, 0.24), transparent 30%),
+        radial-gradient(circle at 12% 82%, rgba(10, 61, 124, 0.10), transparent 28%),
+        linear-gradient(135deg, #eef5ff 0%, #ffffff 54%, #f8fbff 100%);
+      padding: 64px 0 58px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(10, 61, 124, 0.08);
+      border: 1px solid rgba(10, 61, 124, 0.14);
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5.4vw, 68px);
+      max-width: 760px;
+    }
+
+    .hero-text {
+      margin: 20px 0 26px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 700px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 700px;
+    }
+
+    .badge-card {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.84);
+      font-weight: 850;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      background: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .contact-card-main,
+    .quote-card,
+    .info-card,
+    .step,
+    .faq-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(20, 32, 51, 0.06);
+    }
+
+    .contact-card-main {
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+    }
+
+    .contact-card-main h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card-main p {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: #ffffff;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 3px;
+      word-break: break-word;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .bg-soft {
+      background: var(--soft);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 790px;
+      margin: 0 auto 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(31px, 4vw, 46px);
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .info-card {
+      padding: 24px;
+    }
+
+    .info-card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #ffffff;
+      background: var(--primary);
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .quote-section {
+      background:
+        radial-gradient(circle at 90% 20%, rgba(255, 176, 31, 0.20), transparent 28%),
+        linear-gradient(135deg, #f4f8fd 0%, #ffffff 100%);
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .quote-card {
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-card h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .quote-card p {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .list {
+      padding: 0;
+      margin: 18px 0 24px;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+    }
+
+    .list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 950;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 14px;
+      padding: 13px 14px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(10, 61, 124, 0.55);
+      box-shadow: 0 0 0 4px rgba(10, 61, 124, 0.08);
+    }
+
+    textarea {
+      min-height: 98px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .microcopy {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step {
+      min-height: 190px;
+      padding: 24px;
+      counter-increment: step;
+    }
+
+    .step::before {
+      content: counter(step);
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 14px;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .map-card {
+      min-height: 360px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(20, 32, 51, 0.06);
+      background: var(--soft-blue);
+    }
+
+    .map-placeholder {
+      height: 100%;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      text-align: center;
+      color: var(--muted);
+      background:
+        radial-gradient(circle at 70% 20%, rgba(255, 176, 31, 0.18), transparent 28%),
+        linear-gradient(135deg, #eef5ff, #ffffff);
+    }
+
+    .map-placeholder strong {
+      display: block;
+      color: var(--primary);
+      font-size: 28px;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .faq {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .mobile-bottom {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .quote-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-grid,
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding: 40px 0 38px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .hero-badges,
+      .quick-grid,
+      .process-grid,
+      .form-row,
+      .form-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card-main,
+      .quote-card,
+      .info-card,
+      .step {
+        padding: 22px;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .mobile-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 999;
+        padding: 8px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid var(--line);
+        box-shadow: 0 14px 34px rgba(20,32,51,0.18);
+      }
+
+      .mobile-bottom .btn {
+        padding: 11px 8px;
+        min-height: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Contact HC Freight</div>
+          <h1>Contact us for China door-to-door DDP shipping quotes.</h1>
+          <p class="hero-text">
+            Send your shipment details by WhatsApp or email. We help businesses, e-commerce sellers and personal shippers arrange air freight, sea freight, express shipping, customs clearance, DDP tax handling and final delivery from China.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#quoteForm">Get a Free Quote</a>
+            <a class="btn btn-blue" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('contact_hero_whatsapp')">WhatsApp Us Now</a>
+            <a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('contact_hero_email')">Email Us</a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="badge-card"><span class="check">✓</span>Fast quote by WhatsApp</div>
+            <div class="badge-card"><span class="check">✓</span>Air, sea and express routes</div>
+            <div class="badge-card"><span class="check">✓</span>DDP customs and taxes handled</div>
+            <div class="badge-card"><span class="check">✓</span>Yiwu warehouse support</div>
+          </div>
+        </div>
+
+        <aside class="contact-card-main">
+          <h2>Contact information</h2>
+          <p>For a faster quote, please send product photos, packing list, weight, size and destination ZIP code.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">WA</div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('contact_card_whatsapp')">+86 195 6438 0551</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">@</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:inkovnoah@gmail.com" onclick="trackContact('contact_card_email')">inkovnoah@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">CN</div>
+              <div>
+                <strong>Office / Warehouse Area</strong>
+                <span>No. 3, Baisheng Road, Beiyuan Street, Yiwu City, Jinhua City, Zhejiang Province, P.R. China</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">HC</div>
+              <div>
+                <strong>Company</strong>
+                <span>Zhejiang Hechen International Logistics Co., Ltd.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Choose the easiest way to contact us</h2>
+          <p>WhatsApp is the fastest for photos and quick questions. Email is best for packing lists, invoices and detailed shipment files.</p>
+        </div>
+
+        <div class="quick-grid">
+          <div class="info-card">
+            <div class="icon-box">WA</div>
+            <h3>WhatsApp quote</h3>
+            <p>Send product photos, supplier city, carton details and destination ZIP code for a fast first quote.</p>
+            <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('quick_whatsapp')">Chat on WhatsApp</a>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">EM</div>
+            <h3>Email documents</h3>
+            <p>Send packing lists, invoices, product documents or detailed cargo information by email.</p>
+            <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com" onclick="trackContact('quick_email')">Send Email</a>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">QT</div>
+            <h3>Online quote form</h3>
+            <p>Fill in the form below and send the prepared quote request by WhatsApp or email.</p>
+            <a class="btn btn-light" href="#quoteForm">Fill Quote Form</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="quoteForm">
+      <div class="container quote-grid">
+        <div>
+          <div class="eyebrow">Quick quote request</div>
+          <h2>Send shipment details for a faster quote.</h2>
+          <p class="hero-text">The more complete your cargo details are, the faster we can recommend the right shipping method and estimate the cost.</p>
+          <ul class="list">
+            <li>Destination country, city or ZIP code</li>
+            <li>Product name and product photos</li>
+            <li>Carton quantity, carton size and gross weight</li>
+            <li>Supplier city or pickup address in China</li>
+            <li>Preferred method: Air / Sea / Express</li>
+            <li>Special cargo details: battery, liquid, powder, magnet or brand</li>
+          </ul>
+        </div>
+
+        <aside class="quote-card">
+          <h2>Request a shipping quote</h2>
+          <p>Fill in your shipment details and send them by WhatsApp or email.</p>
+
+          <form class="form-grid" onsubmit="sendWhatsAppQuote(event)">
+            <div class="form-row">
+              <label>
+                Your name
+                <input id="name" type="text" placeholder="Your name" required />
+              </label>
+              <label>
+                Contact
+                <input id="contactInfo" type="text" placeholder="WhatsApp or email" required />
+              </label>
+            </div>
+
+            <label>
+              Destination
+              <input id="destination" type="text" placeholder="Country, city, state or ZIP code" required />
+            </label>
+
+            <div class="form-row">
+              <label>
+                Shipping method
+                <select id="method" required>
+                  <option value="Not sure yet">Not sure yet</option>
+                  <option value="Air Freight DDP">Air Freight DDP</option>
+                  <option value="Sea Freight DDP">Sea Freight DDP</option>
+                  <option value="Express Shipping">Express Shipping</option>
+                </select>
+              </label>
+              <label>
+                Cargo type
+                <input id="cargoType" type="text" placeholder="Clothes, cosmetics, batteries..." />
+              </label>
+            </div>
+
+            <label>
+              Cargo details
+              <textarea id="details" placeholder="Product name, cartons, weight, size, quantity, supplier city, photos or packing list details" required></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send by WhatsApp</button>
+              <button class="btn btn-blue" type="button" onclick="sendEmailQuote()">Send by Email</button>
+            </div>
+
+            <div class="microcopy">No packing list yet? Send photos and rough weight/size first.</div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>What happens after you contact us?</h2>
+          <p>We review your cargo details, check the suitable route and provide a shipping recommendation.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="step">
+            <h3>Send cargo details</h3>
+            <p>Share product name, photos, cartons, size, gross weight, supplier location and destination address.</p>
+          </div>
+          <div class="step">
+            <h3>Route checking</h3>
+            <p>We check cargo type, destination, route availability, customs requirements and delivery timeline.</p>
+          </div>
+          <div class="step">
+            <h3>Quote and plan</h3>
+            <p>We recommend air, sea or express shipping based on your budget, timeline and cargo details.</p>
+          </div>
+          <div class="step">
+            <h3>Pickup and shipping</h3>
+            <p>After confirmation, we arrange supplier pickup, warehouse receiving, packing support and shipping.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-soft">
+      <div class="container location-grid">
+        <div class="info-card">
+          <div class="icon-box">CN</div>
+          <h3>Location</h3>
+          <p>No. 3, Baisheng Road, Beiyuan Street, Yiwu City, Jinhua City, Zhejiang Province, P.R. China</p>
+          <ul class="list">
+            <li>Yiwu warehouse and logistics support</li>
+            <li>Supplier pickup across mainland China</li>
+            <li>Air, sea and express shipping route planning</li>
+            <li>DDP customs clearance and final delivery support</li>
+          </ul>
+          <a class="btn btn-blue" href="https://www.google.com/maps/search/?api=1&query=No.%203%2C%20Baisheng%20Road%2C%20Beiyuan%20Street%2C%20Yiwu%20City%2C%20Jinhua%20City%2C%20Zhejiang%20Province%2C%20China" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+
+        <div class="map-card">
+          <div class="map-placeholder">
+            <div>
+              <strong>Yiwu, China</strong>
+              <p>HC Freight supports shipment receiving, inspection, packing, consolidation and international shipping from China.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact FAQ</h2>
+          <p>Common questions before requesting a freight quote from China.</p>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>What information should I send for a quote?</summary>
+            <p>Please send product name, product photos, carton quantity, carton size, gross weight, supplier city and destination address or ZIP code. A packing list is helpful if available.</p>
+          </details>
+
+          <details>
+            <summary>Should I contact by WhatsApp or email?</summary>
+            <p>WhatsApp is faster for photos and quick questions. Email is better for packing lists, invoices and detailed shipment documents.</p>
+          </details>
+
+          <details>
+            <summary>Can you pick up from my supplier in China?</summary>
+            <p>Yes. We can help arrange supplier pickup or warehouse receiving in China. Please provide the supplier city or pickup address.</p>
+          </details>
+
+          <details>
+            <summary>Can you ship to Amazon FBA warehouses?</summary>
+            <p>Yes. We support Amazon FBA delivery, labeling and preparation support when needed.</p>
+          </details>
+
+          <details>
+            <summary>Can you check sensitive cargo before shipping?</summary>
+            <p>Yes. Please send product photos and details if your cargo includes batteries, cosmetics, liquids, powders, magnets, branded goods or other sensitive items.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="mobile-bottom">
+      <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('contact_mobile_whatsapp')">WhatsApp</a>
+      <a class="btn btn-blue" href="#quoteForm">Free Quote</a>
+    </div>
+  </div>
+
+  <script>
+    const WHATSAPP_NUMBER = '8619564380551';
+    const EMAIL_ADDRESS = 'inkovnoah@gmail.com';
+
+    function buildQuoteText() {
+      const name = document.getElementById('name').value.trim();
+      const contactInfo = document.getElementById('contactInfo').value.trim();
+      const destination = document.getElementById('destination').value.trim();
+      const method = document.getElementById('method').value;
+      const cargoType = document.getElementById('cargoType').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      return [
+        'Hello HC Freight, I would like a shipping quote from China.',
+        '',
+        `Name: ${name}`,
+        `Contact: ${contactInfo}`,
+        `Destination: ${destination}`,
+        `Preferred method: ${method}`,
+        `Cargo type: ${cargoType || 'Not provided'}`,
+        `Cargo details: ${details}`
+      ].join('\n');
+    }
+
+    function sendWhatsAppQuote(event) {
+      event.preventDefault();
+      const text = encodeURIComponent(buildQuoteText());
+      trackContact('contact_quote_whatsapp_submit');
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+    }
+
+    function sendEmailQuote() {
+      const form = document.querySelector('form');
+      if (!form.reportValidity()) return;
+      const subject = encodeURIComponent('Shipping Quote Request from China');
+      const body = encodeURIComponent(buildQuoteText());
+      trackContact('contact_quote_email_click');
+      window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+    }
+
+    function trackContact(eventName) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: 'contact_page'
+        });
+      }
+    }
+  </script>
+</body>
+</html>
