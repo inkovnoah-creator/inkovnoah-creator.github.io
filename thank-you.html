@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --primary: #0a3d7c;
+      --primary-dark: #06234a;
+      --accent: #ffb01f;
+      --accent-dark: #e99b00;
+      --text: #142033;
+      --muted: #5b667a;
+      --soft: #f4f8fd;
+      --soft-blue: #eef5ff;
+      --line: #dce6f2;
+      --white: #ffffff;
+      --green: #14845f;
+      --red: #b42318;
+      --shadow: 0 18px 48px rgba(10, 61, 124, 0.14);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #182230;
+      box-shadow: 0 12px 24px rgba(255, 176, 31, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-blue {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(10, 61, 124, 0.22);
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 82% 8%, rgba(255, 176, 31, 0.24), transparent 30%),
+        radial-gradient(circle at 12% 82%, rgba(10, 61, 124, 0.10), transparent 28%),
+        linear-gradient(135deg, #eef5ff 0%, #ffffff 54%, #f8fbff 100%);
+      padding: 68px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .success-card,
+    .next-card,
+    .info-card,
+    .contact-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(20, 32, 51, 0.06);
+    }
+
+    .success-card {
+      padding: 34px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: rgba(20, 132, 95, 0.12);
+      color: var(--green);
+      font-size: 38px;
+      font-weight: 950;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(10, 61, 124, 0.08);
+      border: 1px solid rgba(10, 61, 124, 0.14);
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5.4vw, 70px);
+      max-width: 780px;
+    }
+
+    .hero-text {
+      margin: 20px 0 26px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .next-card {
+      padding: 28px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .next-card h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .next-card p {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .next-list {
+      display: grid;
+      gap: 12px;
+      counter-reset: nextstep;
+    }
+
+    .next-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #ffffff;
+      counter-increment: nextstep;
+    }
+
+    .next-item::before {
+      content: counter(nextstep);
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 950;
+    }
+
+    .next-item strong {
+      display: block;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .next-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .bg-soft {
+      background: var(--soft);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 790px;
+      margin: 0 auto 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(31px, 4vw, 46px);
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .info-card {
+      padding: 24px;
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #ffffff;
+      background: var(--primary);
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .info-card h3,
+    .contact-card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .info-card p,
+    .contact-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .list {
+      padding: 0;
+      margin: 18px 0 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+    }
+
+    .list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 950;
+    }
+
+    .cta-band {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band h2 {
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .cta-band p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 680px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .contact-card {
+      padding: 24px;
+    }
+
+    .mobile-bottom {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid,
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding: 42px 0 40px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .success-card,
+      .next-card,
+      .info-card,
+      .contact-card,
+      .cta-band {
+        padding: 22px;
+      }
+
+      .info-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .mobile-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 999;
+        padding: 8px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid var(--line);
+        box-shadow: 0 14px 34px rgba(20,32,51,0.18);
+      }
+
+      .mobile-bottom .btn {
+        padding: 11px 8px;
+        min-height: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="success-card">
+          <div class="success-icon">✓</div>
+          <div class="eyebrow">Quote request received</div>
+          <h1>Thank you! We received your shipping quote request.</h1>
+          <p class="hero-text">
+            Our team will review your shipment details and contact you shortly. For a faster quote, you can also send product photos, packing list, invoice or carton details by WhatsApp or email.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('thank_you_whatsapp_top')">Send Details on WhatsApp</a>
+            <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com?subject=Additional%20Shipment%20Details%20for%20Quote" onclick="trackContact('thank_you_email_top')">Email Documents</a>
+            <a class="btn btn-light" href="https://www.doorhc.com/" target="_top">Back to Home</a>
+          </div>
+        </div>
+
+        <aside class="next-card">
+          <h2>What happens next?</h2>
+          <p>We will check your cargo details and recommend a suitable shipping option.</p>
+
+          <div class="next-list">
+            <div class="next-item">
+              <div>
+                <strong>Review shipment details</strong>
+                <span>We check product type, destination, weight, volume and special cargo requirements.</span>
+              </div>
+            </div>
+
+            <div class="next-item">
+              <div>
+                <strong>Choose the best route</strong>
+                <span>We compare air freight, sea freight and express delivery based on your budget and timeline.</span>
+              </div>
+            </div>
+
+            <div class="next-item">
+              <div>
+                <strong>Send quote and next steps</strong>
+                <span>We contact you with the route recommendation, price details and what to prepare before shipping.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Send these details for a faster quote</h2>
+          <p>The more complete your shipment details are, the faster we can check the right route and price.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="icon-box">1</div>
+            <h3>Cargo information</h3>
+            <p>Send product name, product photos, quantity, carton size and gross weight.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">2</div>
+            <h3>Destination details</h3>
+            <p>Send destination country, city, state, ZIP code or full delivery address.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-box">3</div>
+            <h3>Special cargo details</h3>
+            <p>Tell us if the cargo includes battery, liquid, powder, magnet, cosmetics or branded goods.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-soft">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Need to add product photos or a packing list?</h2>
+            <p>Send additional files through WhatsApp or email so we can check your quote more accurately.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('thank_you_whatsapp_cta')">WhatsApp Us</a>
+          <a class="btn btn-light" href="mailto:inkovnoah@gmail.com?subject=Additional%20Shipment%20Details%20for%20Quote" onclick="trackContact('thank_you_email_cta')">Email Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Useful links</h2>
+          <p>You can continue browsing our services or check shipment tracking if you already have a tracking number.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="icon-box">USA</div>
+            <h3>China to USA Shipping</h3>
+            <p>View our dedicated China-to-USA DDP shipping page for air, sea and express options.</p>
+            <a class="btn btn-primary" href="https://www.doorhc.com/china-to-usa-shipping" target="_top">View USA Page</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="icon-box">SV</div>
+            <h3>Our Services</h3>
+            <p>Compare Air Freight DDP, Sea Freight DDP and International Express services.</p>
+            <a class="btn btn-blue" href="https://www.doorhc.com/services" target="_top">View Services</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="icon-box">TR</div>
+            <h3>Track Shipment</h3>
+            <p>Already have a tracking number? Check your shipment status online.</p>
+            <a class="btn btn-light" href="https://www.doorhc.com/tracking" target="_top">Track Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mobile-bottom">
+      <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('thank_you_mobile_whatsapp')">WhatsApp</a>
+      <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com?subject=Additional%20Shipment%20Details%20for%20Quote" onclick="trackContact('thank_you_mobile_email')">Email Us</a>
+    </div>
+  </div>
+
+  <script>
+    function trackContact(eventName) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: 'thank_you_page'
+        });
+      }
+    }
+
+    function trackThankYouPageView() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'thank_you_page_view', {
+          event_category: 'lead',
+          event_label: 'quote_request_received'
+        });
+
+        /*
+          Optional Google Ads conversion tracking:
+          Replace AW-CONVERSION_ID/CONVERSION_LABEL with your real Google Ads conversion ID and label.
+          Example:
+          gtag('event', 'conversion', {
+            'send_to': 'AW-123456789/AbCdEfGhIjKlMnOpQrSt'
+          });
+        */
+      }
+    }
+
+    trackThankYouPageView();
+  </script>
+</body>
+</html>
