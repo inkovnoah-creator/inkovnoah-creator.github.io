@@ -437,6 +437,19 @@
 
 <body>
   <div class="page-wrap">
+    <header style="background:#ffffff;border-bottom:1px solid #dce6f2;position:sticky;top:0;z-index:1000;">
+      <div style="width:min(1180px, calc(100% - 32px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:18px;flex-wrap:wrap;">
+        <a href="index.html" style="font-weight:900;color:#0a3d7c;font-size:18px;">HC Freight</a>
+        <nav style="display:flex;gap:22px;align-items:center;font-weight:800;color:#142033;flex-wrap:wrap;">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="tracking.html">Tracking</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -447,10 +460,10 @@
           </p>
 
           <div class="hero-badges">
-            <div class="badge-card"><span class="check">✓</span>Supports multiple tracking numbers</div>
-            <div class="badge-card"><span class="check">✓</span>Global shipment tracking</div>
-            <div class="badge-card"><span class="check">✓</span>Air, sea and express updates</div>
-            <div class="badge-card"><span class="check">✓</span>WhatsApp support if no update appears</div>
+            <div class="badge-card"><span class="check">鉁?</span>Supports multiple tracking numbers</div>
+            <div class="badge-card"><span class="check">鉁?</span>Global shipment tracking</div>
+            <div class="badge-card"><span class="check">鉁?</span>Air, sea and express updates</div>
+            <div class="badge-card"><span class="check">鉁?</span>WhatsApp support if no update appears</div>
           </div>
         </div>
 
@@ -460,7 +473,7 @@
 
           <label for="trackingNumbers">
             Tracking numbers
-            <textarea id="trackingNumbers" placeholder="Example:\1Z0368FC0306991805"></textarea>
+            <textarea id="trackingNumbers" placeholder="Example: 1Z0368FC0306991805"></textarea>
           </label>
 
           <div class="button-row">
@@ -558,7 +571,7 @@
 
     function parseTrackingNumbers(input) {
       const rawNumbers = input
-        .split(/[\s,，;；]+/)
+        .split(/[\s,锛?;锛沒+/)
         .map(function(number) {
           return number.trim();
         })
