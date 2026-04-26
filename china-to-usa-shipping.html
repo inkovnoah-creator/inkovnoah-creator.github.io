@@ -445,7 +445,7 @@
     }
 
     .list li::before {
-      content: "鉁?";
+      content: "\2713";
       position: absolute;
       left: 0;
       top: 0;
@@ -711,10 +711,10 @@
           </div>
 
           <div class="hero-points">
-            <div class="point"><span class="check">鉁?</span>DDP tax included</div>
-            <div class="point"><span class="check">鉁?</span>Customs clearance handled</div>
-            <div class="point"><span class="check">鉁?</span>Air, sea and express options</div>
-            <div class="point"><span class="check">鉁?</span>Amazon FBA support</div>
+            <div class="point"><span class="check">&#10003;</span>DDP tax included</div>
+            <div class="point"><span class="check">&#10003;</span>Customs clearance handled</div>
+            <div class="point"><span class="check">&#10003;</span>Air, sea and express options</div>
+            <div class="point"><span class="check">&#10003;</span>Amazon FBA support</div>
           </div>
         </div>
 
@@ -779,9 +779,9 @@
         </div>
 
         <div class="stats">
-          <div class="stat-card"><strong>3鈥?7</strong><span>days express option</span></div>
-          <div class="stat-card"><strong>8鈥?15</strong><span>days air DDP option</span></div>
-          <div class="stat-card"><strong>20鈥?60</strong><span>days sea DDP option</span></div>
+          <div class="stat-card"><strong>3-7</strong><span>days express option</span></div>
+          <div class="stat-card"><strong>8-15</strong><span>days air DDP option</span></div>
+          <div class="stat-card"><strong>20-60</strong><span>days sea DDP option</span></div>
           <div class="stat-card"><strong>DDP</strong><span>customs & taxes handled</span></div>
         </div>
       </div>
@@ -798,7 +798,7 @@
           <article class="service-card featured">
             <span class="tag">Best balance</span>
             <h3>Air Freight DDP</h3>
-            <div class="time">8鈥?15 days</div>
+            <div class="time">8-15 days</div>
             <p>Fast door-to-door shipping for e-commerce orders, medium-size cargo and urgent restocking.</p>
             <ul class="list">
               <li>Suitable for urgent cargo and online sellers</li>
@@ -812,7 +812,7 @@
           <article class="service-card">
             <span class="tag">Cost-effective</span>
             <h3>Sea Freight DDP</h3>
-            <div class="time">20鈥?60 days</div>
+            <div class="time">20-60 days</div>
             <p>Lower-cost option for bulk cargo, wholesalers, large shipments and Amazon FBA inventory.</p>
             <ul class="list">
               <li>Good for heavy or large-volume shipments</li>
@@ -826,7 +826,7 @@
           <article class="service-card">
             <span class="tag">Fastest</span>
             <h3>Express Shipping</h3>
-            <div class="time">3鈥?7 days</div>
+            <div class="time">3-7 days</div>
             <p>Priority delivery for samples, small parcels, time-sensitive goods and important documents.</p>
             <ul class="list">
               <li>Best for samples and small urgent parcels</li>
@@ -1101,8 +1101,7 @@
         `Preferred method: ${method}`,
         `Cargo type: ${cargoType || 'Not provided'}`,
         `Cargo details: ${details}`
-      ].join('
-');
+      ].join('\n');
     }
 
     function goToThankYouPage() {

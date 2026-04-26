@@ -460,10 +460,10 @@
           </p>
 
           <div class="hero-badges">
-            <div class="badge-card"><span class="check">鉁?</span>Supports multiple tracking numbers</div>
-            <div class="badge-card"><span class="check">鉁?</span>Global shipment tracking</div>
-            <div class="badge-card"><span class="check">鉁?</span>Air, sea and express updates</div>
-            <div class="badge-card"><span class="check">鉁?</span>WhatsApp support if no update appears</div>
+            <div class="badge-card"><span class="check">&#10003;</span>Supports multiple tracking numbers</div>
+            <div class="badge-card"><span class="check">&#10003;</span>Global shipment tracking</div>
+            <div class="badge-card"><span class="check">&#10003;</span>Air, sea and express updates</div>
+            <div class="badge-card"><span class="check">&#10003;</span>WhatsApp support if no update appears</div>
           </div>
         </div>
 
@@ -571,7 +571,7 @@
 
     function parseTrackingNumbers(input) {
       const rawNumbers = input
-        .split(/[\s,锛?;锛沒+/)
+        .split(/[\s,,;;]+/)
         .map(function(number) {
           return number.trim();
         })
