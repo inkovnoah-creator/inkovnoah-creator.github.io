@@ -102,6 +102,54 @@
       border: 1px solid var(--line);
     }
 
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .site-header-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .site-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .site-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 950;
+    }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 850;
+    }
+    .site-nav a { color: var(--text); }
+    .site-nav a:hover,
+    .site-nav a.active { color: var(--primary); }
+
     .hero {
       background:
         radial-gradient(circle at 82% 8%, rgba(255, 176, 31, 0.24), transparent 30%),
@@ -406,7 +454,7 @@
     }
 
     details[open] summary::after {
-      content: "−";
+      content: "鈭?";
     }
 
     details p {
@@ -475,7 +523,7 @@
     }
 
     .list li::before {
-      content: "✓";
+      content: "鉁?";
       position: absolute;
       left: 0;
       top: 0;
@@ -582,6 +630,23 @@
     }
 
     @media (max-width: 640px) {
+
+      .site-header-inner {
+        width: min(var(--max), calc(100% - 24px));
+        min-height: auto;
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .site-nav {
+        width: 100%;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
       .container {
         width: min(var(--max), calc(100% - 24px));
       }
@@ -640,6 +705,22 @@
 
 <body>
   <div class="page-wrap">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-logo" href="index.html" aria-label="HC Freight Home">
+          <span class="site-logo-mark">HC</span>
+          <span>HC Freight</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="tracking.html">Tracking</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a class="active" href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -652,20 +733,20 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#quoteForm">Get a Free Quote</a>
             <a class="btn btn-blue" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('faq_hero_whatsapp')">Ask on WhatsApp</a>
-            <a class="btn btn-light" href="https://www.doorhc.com/china-to-usa-shipping" target="_top">China to USA Shipping</a>
+            <a class="btn btn-light" href="china-to-usa-shipping.html" target="_top">China to USA Shipping</a>
           </div>
 
           <div class="hero-badges">
-            <div class="badge-card"><span class="check">✓</span>DDP customs and taxes</div>
-            <div class="badge-card"><span class="check">✓</span>Air, sea and express options</div>
-            <div class="badge-card"><span class="check">✓</span>Accepted and prohibited goods</div>
-            <div class="badge-card"><span class="check">✓</span>Quote, pickup and tracking help</div>
+            <div class="badge-card"><span class="check">鉁?</span>DDP customs and taxes</div>
+            <div class="badge-card"><span class="check">鉁?</span>Air, sea and express options</div>
+            <div class="badge-card"><span class="check">鉁?</span>Accepted and prohibited goods</div>
+            <div class="badge-card"><span class="check">鉁?</span>Quote, pickup and tracking help</div>
           </div>
         </div>
 
         <aside class="search-card">
           <h2>Search FAQ</h2>
-          <p>Type a keyword such as “DDP”, “battery”, “FBA”, “tracking”, “pickup”, “insurance” or “quote”.</p>
+          <p>Type a keyword such as 鈥淒DP鈥?, 鈥渂attery鈥?, 鈥淔BA鈥?, 鈥渢racking鈥?, 鈥減ickup鈥?, 鈥渋nsurance鈥? or 鈥渜uote鈥?.</p>
 
           <div class="search-box">
             <input id="faqSearch" type="search" placeholder="Search questions..." oninput="filterFAQ()" />
@@ -699,7 +780,7 @@
           <div class="quick-card">
             <div class="icon-box">USA</div>
             <h3>How long to the USA?</h3>
-            <p>Express is usually 3–7 days, air DDP is usually 8–15 days, and sea DDP is usually 20–60 days.</p>
+            <p>Express is usually 3鈥?7 days, air DDP is usually 8鈥?15 days, and sea DDP is usually 20鈥?60 days.</p>
           </div>
           <div class="quick-card">
             <div class="icon-box">QT</div>
@@ -731,7 +812,7 @@
             <div class="faq-list">
               <details class="faq-item" data-category="shipping" open>
                 <summary>How long does shipping from China to the USA take?</summary>
-                <p>For China-to-USA shipments, express shipping is usually 3–7 days, air freight DDP is usually 8–15 days, and sea freight DDP is usually 20–60 days. The final timeline depends on route, cargo type, customs, destination and carrier transfer.</p>
+                <p>For China-to-USA shipments, express shipping is usually 3鈥?7 days, air freight DDP is usually 8鈥?15 days, and sea freight DDP is usually 20鈥?60 days. The final timeline depends on route, cargo type, customs, destination and carrier transfer.</p>
               </details>
 
               <details class="faq-item" data-category="shipping">
@@ -948,7 +1029,7 @@
             <div class="icon-box">USA</div>
             <h3>USA DDP shipping</h3>
             <p>View the dedicated China-to-USA DDP shipping landing page.</p>
-            <a class="btn btn-light" href="https://www.doorhc.com/china-to-usa-shipping" target="_top">View USA Page</a>
+            <a class="btn btn-light" href="china-to-usa-shipping.html" target="_top">View USA Page</a>
           </div>
         </div>
       </div>
