@@ -310,7 +310,7 @@
     }
 
     .list li::before {
-      content: "✓";
+      content: "鉁?";
       position: absolute;
       left: 0;
       top: 0;
@@ -354,6 +354,52 @@
       display: none;
     }
 
+
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .site-logo {
+      font-weight: 950;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 850;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      color: var(--text);
+    }
+
+    .site-nav a:hover {
+      color: var(--primary);
+    }
+
+
     @media (max-width: 980px) {
       .hero-grid,
       .cta-band {
@@ -377,6 +423,18 @@
 
       h1 {
         font-size: 38px;
+      }
+
+      .site-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .site-nav {
+        gap: 12px;
+        font-size: 13px;
+        justify-content: flex-start;
       }
 
       .success-card,
@@ -422,10 +480,24 @@
 
 <body>
   <div class="page-wrap">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-logo" href="index.html">HC Freight</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="tracking.html">Tracking</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
     <section class="hero">
       <div class="container hero-grid">
         <div class="success-card">
-          <div class="success-icon">✓</div>
+          <div class="success-icon">鉁?</div>
           <div class="eyebrow">Quote request received</div>
           <h1>Thank you! We received your shipping quote request.</h1>
           <p class="hero-text">
@@ -435,7 +507,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('thank_you_whatsapp_top')">Send Details on WhatsApp</a>
             <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com?subject=Additional%20Shipment%20Details%20for%20Quote" onclick="trackContact('thank_you_email_top')">Email Documents</a>
-            <a class="btn btn-light" href="https://www.doorhc.com/" target="_top">Back to Home</a>
+            <a class="btn btn-light" href="index.html" target="_top">Back to Home</a>
           </div>
         </div>
 
@@ -523,21 +595,21 @@
             <div class="icon-box">USA</div>
             <h3>China to USA Shipping</h3>
             <p>View our dedicated China-to-USA DDP shipping page for air, sea and express options.</p>
-            <a class="btn btn-primary" href="https://www.doorhc.com/china-to-usa-shipping" target="_top">View USA Page</a>
+            <a class="btn btn-primary" href="index.htmlchina-to-usa-shipping" target="_top">View USA Page</a>
           </div>
 
           <div class="contact-card">
             <div class="icon-box">SV</div>
             <h3>Our Services</h3>
             <p>Compare Air Freight DDP, Sea Freight DDP and International Express services.</p>
-            <a class="btn btn-blue" href="https://www.doorhc.com/services" target="_top">View Services</a>
+            <a class="btn btn-blue" href="index.htmlservices" target="_top">View Services</a>
           </div>
 
           <div class="contact-card">
             <div class="icon-box">TR</div>
             <h3>Track Shipment</h3>
             <p>Already have a tracking number? Check your shipment status online.</p>
-            <a class="btn btn-light" href="https://www.doorhc.com/tracking" target="_top">Track Now</a>
+            <a class="btn btn-light" href="index.htmltracking" target="_top">Track Now</a>
           </div>
         </div>
       </div>
