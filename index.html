@@ -4,1176 +4,398 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HC Freight | Door-to-Door Shipping from China</title>
-
+  <meta name="description" content="HC Freight provides air freight, sea freight, express and DDP door-to-door shipping from China, with warehouse receiving, inspection, packing, labeling and Amazon FBA support." />
   <style>
     :root {
-      --primary: #0a3d7c;
-      --primary-dark: #06234a;
-      --accent: #ffb01f;
-      --accent-dark: #e99b00;
-      --text: #142033;
-      --muted: #5b667a;
-      --soft: #f4f8fd;
-      --line: #dce6f2;
+      --navy: #07182f;
+      --navy-2: #0d2747;
+      --blue: #1769ff;
+      --cyan: #21c4d9;
+      --gold: #ffb547;
+      --text: #132238;
+      --muted: #64748b;
+      --line: #e6edf5;
+      --bg: #f6f9fc;
       --white: #ffffff;
-      --green: #14845f;
-      --shadow: 0 18px 48px rgba(10, 61, 124, 0.14);
       --radius: 22px;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #ffffff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    .page-wrap {
-      width: 100%;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 0;
-      cursor: pointer;
-      font-weight: 900;
-      white-space: nowrap;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #182230;
-      box-shadow: 0 12px 24px rgba(255, 176, 31, 0.28);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .btn-blue {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 12px 24px rgba(10, 61, 124, 0.22);
-    }
-
-    .btn-light {
-      background: #ffffff;
-      color: var(--primary);
-      border: 1px solid var(--line);
-    }
-
-
-    .site-header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .site-header-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .site-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--primary);
-      font-weight: 950;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .site-logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 950;
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 850;
-    }
-
-    .site-nav a {
-      color: var(--text);
-    }
-
-    .site-nav a:hover,
-    .site-nav a.active {
-      color: var(--primary);
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 84% 12%, rgba(255, 176, 31, 0.24), transparent 30%),
-        radial-gradient(circle at 8% 82%, rgba(10, 61, 124, 0.10), transparent 28%),
-        linear-gradient(135deg, #eef5ff 0%, #ffffff 54%, #f8fbff 100%);
-      padding: 64px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 38px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 13px;
-      border-radius: 999px;
-      color: var(--primary);
-      background: rgba(10, 61, 124, 0.08);
-      border: 1px solid rgba(10, 61, 124, 0.14);
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-    }
-
-    h1 {
-      font-size: clamp(42px, 5.4vw, 70px);
-      max-width: 780px;
-    }
-
-    .hero-text {
-      margin: 20px 0 26px;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 700px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .hero-badges {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      max-width: 700px;
-    }
-
-    .badge-card {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.82);
-      font-weight: 850;
-    }
-
-    .check {
-      width: 22px;
-      height: 22px;
-      flex: 0 0 22px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      background: var(--green);
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .overview-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .overview-card::after {
-      content: "";
-      position: absolute;
-      right: -90px;
-      bottom: -110px;
-      width: 240px;
-      height: 240px;
-      border-radius: 999px;
-      background: rgba(10, 61, 124, 0.06);
-    }
-
-    .overview-card h2 {
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
-
-    .overview-card p {
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #ffffff;
-      padding: 18px;
-    }
-
-    .mini-card strong {
-      display: block;
-      color: var(--primary);
-      font-size: 26px;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      margin-bottom: 6px;
-    }
-
-    .mini-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    section {
-      padding: 60px 0;
-    }
-
-    .bg-soft {
-      background: var(--soft);
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 790px;
-      margin: 0 auto 34px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(31px, 4vw, 46px);
-    }
-
-    .section-head p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .service-card,
-    .panel,
-    .route-card,
-    .step,
-    .quote-card,
-    .contact-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 12px 34px rgba(20, 32, 51, 0.06);
-    }
-
-    .service-card {
-      display: flex;
-      flex-direction: column;
-      padding: 25px;
-    }
-
-    .service-card.featured {
-      border-color: rgba(255, 176, 31, 0.72);
-      box-shadow: 0 18px 48px rgba(255, 176, 31, 0.16);
-    }
-
-    .tag {
-      display: inline-flex;
-      width: fit-content;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(10, 61, 124, 0.08);
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 900;
-      margin-bottom: 16px;
-    }
-
-    .service-card h3,
-    .route-card h3,
-    .panel h3,
-    .contact-card h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .time {
-      color: var(--primary);
-      font-size: 34px;
-      line-height: 1;
-      font-weight: 950;
-      letter-spacing: -0.05em;
-      margin: 10px 0 14px;
-    }
-
-    .service-card p,
-    .route-card p,
-    .panel p,
-    .step p,
-    .contact-card p,
-    .quote-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .list {
-      padding: 0;
-      margin: 18px 0 24px;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .list li {
-      position: relative;
-      padding-left: 28px;
-      color: var(--muted);
-    }
-
-    .list li::before {
-      content: "\2713";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--green);
-      font-weight: 950;
-    }
-
-    .service-card .btn,
-    .route-card .btn {
-      margin-top: auto;
-      width: 100%;
-    }
-
-    .route-highlight {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .route-card {
-      padding: 30px;
-    }
-
-    .route-card h2 {
-      font-size: clamp(32px, 4vw, 48px);
-      margin-bottom: 14px;
-    }
-
-    .route-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .route-feature {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: #ffffff;
-      font-weight: 900;
-    }
-
-    .route-feature span {
-      display: block;
-      color: var(--primary);
-      font-size: 26px;
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .panel {
-      padding: 28px;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      counter-reset: step;
-    }
-
-    .step {
-      min-height: 190px;
-      padding: 24px;
-      counter-increment: step;
-    }
-
-    .step::before {
-      content: counter(step);
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 14px;
-      font-weight: 950;
-      margin-bottom: 18px;
-    }
-
-    .step h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .quote-section {
-      background:
-        radial-gradient(circle at 90% 20%, rgba(255, 176, 31, 0.20), transparent 28%),
-        linear-gradient(135deg, #f4f8fd 0%, #ffffff 100%);
-    }
-
-    .quote-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .quote-card {
-      padding: 28px;
-    }
-
-    .quote-card h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    label {
-      display: grid;
-      gap: 6px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 850;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      border-radius: 14px;
-      padding: 13px 14px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 96px;
-      resize: vertical;
-    }
-
-    .form-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 2px;
-    }
-
-    .microcopy {
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    .faq {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      gap: 12px;
-    }
-
-    details {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 20px;
-    }
-
-    summary {
-      cursor: pointer;
-      color: var(--text);
-      font-weight: 900;
-    }
-
-    details p {
-      margin: 12px 0 0;
-      color: var(--muted);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .contact-card {
-      padding: 24px;
-    }
-
-    .contact-card p {
-      margin-bottom: 14px;
-    }
-
-    .mobile-bottom {
-      display: none;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .route-highlight,
-      .split,
-      .quote-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid,
-      .process-grid,
-      .contact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-
-      .site-header-inner {
-        width: min(var(--max), calc(100% - 24px));
-        min-height: auto;
-        padding: 12px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .site-nav {
-        width: 100%;
-        gap: 12px;
-        overflow-x: auto;
-        padding-bottom: 2px;
-        font-size: 14px;
-        white-space: nowrap;
-      }
-
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-  
-    .site-header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .site-header-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .site-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--primary);
-      font-weight: 950;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .site-logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 950;
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 850;
-    }
-
-    .site-nav a {
-      color: var(--text);
-    }
-
-    .site-nav a:hover,
-    .site-nav a.active {
-      color: var(--primary);
-    }
-
-    .hero {
-        padding: 40px 0 38px;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .hero-badges,
-      .mini-grid,
-      .services-grid,
-      .process-grid,
-      .route-features,
-      .contact-grid,
-      .form-row,
-      .form-actions {
-        grid-template-columns: 1fr;
-      }
-
-      .overview-card,
-      .quote-card,
-      .panel,
-      .service-card,
-      .route-card {
-        padding: 22px;
-      }
-
-      section {
-        padding: 46px 0;
-      }
-
-      .mobile-bottom {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        position: fixed;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        z-index: 999;
-        padding: 8px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.94);
-        border: 1px solid var(--line);
-        box-shadow: 0 14px 34px rgba(20,32,51,0.18);
-      }
-
-      .mobile-bottom .btn {
-        padding: 11px 8px;
-        min-height: 42px;
-      }
+      --shadow: 0 24px 70px rgba(8, 31, 65, .13);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, Arial, Helvetica, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { background: #061326; color: rgba(255,255,255,.82); font-size: 14px; }
+    .topbar .container { display:flex; justify-content:space-between; gap:18px; padding:9px 0; flex-wrap:wrap; }
+    header { position: sticky; top:0; z-index:50; background: rgba(255,255,255,.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(226,232,240,.8); }
+    .nav { height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; color:var(--navy); letter-spacing:-.02em; }
+    .brand-mark { width:42px; height:42px; border-radius:14px; background:linear-gradient(135deg,var(--blue),var(--cyan)); display:grid; place-items:center; color:white; font-weight:900; box-shadow:0 12px 32px rgba(23,105,255,.28); }
+    .links { display:flex; align-items:center; gap:24px; color:#334155; font-size:15px; }
+    .links a:hover { color:var(--blue); }
+    .nav-cta { display:flex; gap:10px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:13px 20px; border-radius:999px; font-weight:750; border:1px solid transparent; transition:.2s ease; cursor:pointer; white-space:nowrap; }
+    .btn-primary { background:linear-gradient(135deg,var(--blue),#0f52d8); color:white; box-shadow:0 14px 34px rgba(23,105,255,.26); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 18px 42px rgba(23,105,255,.34); }
+    .btn-ghost { background:white; color:var(--navy); border-color:#d9e3ef; }
+    .btn-ghost:hover { border-color:var(--blue); color:var(--blue); }
+    .hero { position:relative; overflow:hidden; background:var(--navy); color:white; }
+    .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(7,24,47,.96) 0%, rgba(7,24,47,.82) 42%, rgba(7,24,47,.38) 100%); z-index:1; }
+    .hero::after { content:""; position:absolute; inset:auto -20% -35% auto; width:560px; height:560px; background:rgba(33,196,217,.24); filter:blur(80px); border-radius:50%; z-index:1; }
+    .hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.9; }
+    .hero-content { position:relative; z-index:2; min-height:690px; display:grid; grid-template-columns:1.05fr .8fr; gap:48px; align-items:center; padding:90px 0 70px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 13px; border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.1); border-radius:999px; color:#dff8ff; font-size:14px; font-weight:700; margin-bottom:22px; }
+    .eyebrow span { width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 0 5px rgba(33,196,217,.14); }
+    h1 { font-size: clamp(42px, 6vw, 76px); line-height: .98; letter-spacing:-.055em; margin:0 0 22px; max-width:850px; }
+    .hero p { font-size:20px; color:#dbeafe; max-width:720px; margin:0 0 30px; }
+    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
+    .trust-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; max-width:850px; }
+    .trust-item { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16); border-radius:18px; padding:15px 16px; color:#eff6ff; font-weight:700; backdrop-filter:blur(10px); }
+    .quote-card { background:rgba(255,255,255,.96); color:var(--text); border-radius:28px; padding:28px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.7); }
+    .quote-card h2 { margin:0 0 8px; font-size:27px; letter-spacing:-.03em; color:var(--navy); }
+    .quote-card p { color:var(--muted); font-size:15px; margin:0 0 20px; }
+    .form-grid { display:grid; gap:12px; }
+    input, select, textarea { width:100%; border:1px solid #dbe5ef; background:#f8fbff; border-radius:14px; padding:14px 15px; font:inherit; color:var(--text); outline:none; }
+    textarea { min-height:104px; resize:vertical; }
+    input:focus, select:focus, textarea:focus { border-color:var(--blue); box-shadow:0 0 0 4px rgba(23,105,255,.1); background:white; }
+    .form-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    section { padding:86px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:34px; }
+    .section-head h2 { font-size: clamp(32px,4vw,48px); line-height:1.05; letter-spacing:-.045em; margin:0; color:var(--navy); max-width:720px; }
+    .section-head p { margin:0; color:var(--muted); max-width:420px; }
+    .stats { margin-top:-46px; position:relative; z-index:3; }
+    .stats-grid { background:white; box-shadow:var(--shadow); border:1px solid var(--line); border-radius:28px; padding:24px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .stat { padding:20px; background:linear-gradient(180deg,#ffffff,#f7fbff); border-radius:20px; border:1px solid #e8eef6; }
+    .stat strong { display:block; font-size:30px; letter-spacing:-.04em; color:var(--navy); }
+    .stat span { color:var(--muted); font-size:14px; }
+    .services { background:var(--bg); }
+    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .service-card { background:white; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:0 16px 40px rgba(15,35,65,.08); }
+    .service-card img { width:100%; height:230px; object-fit:cover; }
+    .service-body { padding:24px; }
+    .badge { display:inline-flex; padding:6px 10px; border-radius:999px; background:#edf5ff; color:#155bd4; font-size:13px; font-weight:800; margin-bottom:12px; }
+    .service-body h3 { margin:0 0 8px; color:var(--navy); font-size:24px; letter-spacing:-.025em; }
+    .service-body p { color:var(--muted); margin:0 0 17px; }
+    .check-list { padding:0; margin:0; list-style:none; display:grid; gap:8px; color:#334155; }
+    .check-list li::before { content:"✓"; color:var(--blue); font-weight:900; margin-right:9px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:center; }
+    .image-stack { position:relative; min-height:500px; }
+    .image-stack img { position:absolute; object-fit:cover; border-radius:28px; box-shadow:var(--shadow); border:6px solid white; }
+    .image-stack .main { inset:0 60px 90px 0; width:calc(100% - 60px); height:410px; }
+    .image-stack .small { right:0; bottom:0; width:48%; height:240px; }
+    .content h2 { font-size: clamp(32px,4vw,50px); line-height:1.05; letter-spacing:-.045em; color:var(--navy); margin:0 0 20px; }
+    .content p { color:var(--muted); margin:0 0 24px; font-size:17px; }
+    .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; }
+    .feature { padding:18px; border-radius:18px; background:#f7fbff; border:1px solid var(--line); }
+    .feature strong { display:block; color:var(--navy); margin-bottom:4px; }
+    .process { background:linear-gradient(180deg,#ffffff 0%,#f6f9fc 100%); }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:step; }
+    .step { background:white; border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow:0 12px 30px rgba(15,35,65,.06); counter-increment:step; }
+    .step::before { content:"0" counter(step); display:inline-grid; place-items:center; width:44px; height:44px; border-radius:14px; background:var(--navy); color:white; font-weight:900; margin-bottom:18px; }
+    .step h3 { margin:0 0 8px; color:var(--navy); }
+    .step p { margin:0; color:var(--muted); }
+    .proof { background:var(--navy); color:white; overflow:hidden; }
+    .proof .section-head h2 { color:white; }
+    .proof .section-head p { color:#cbd5e1; }
+    .proof-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:22px; }
+    .proof-card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:26px; overflow:hidden; }
+    .proof-card img { width:100%; height:330px; object-fit:cover; }
+    .proof-card div { padding:22px; }
+    .proof-card h3 { margin:0 0 8px; font-size:24px; }
+    .proof-card p { margin:0; color:#dbeafe; }
+    .quote-section { background:var(--bg); }
+    .quote-wrap { display:grid; grid-template-columns:.85fr 1.15fr; gap:26px; align-items:stretch; }
+    .quote-info { border-radius:28px; padding:34px; background:linear-gradient(135deg,var(--navy),var(--navy-2)); color:white; position:relative; overflow:hidden; }
+    .quote-info h2 { font-size:42px; line-height:1.05; letter-spacing:-.045em; margin:0 0 18px; }
+    .quote-info p { color:#dbeafe; margin:0 0 24px; }
+    .quote-info ul { padding:0; margin:0; list-style:none; display:grid; gap:12px; }
+    .quote-info li::before { content:"✓"; color:var(--cyan); font-weight:900; margin-right:10px; }
+    .quote-form { background:white; border:1px solid var(--line); border-radius:28px; padding:30px; box-shadow:var(--shadow); }
+    .footer { background:#061326; color:#cbd5e1; padding:44px 0; }
+    .footer-grid { display:grid; grid-template-columns:1.2fr repeat(3,1fr); gap:26px; }
+    .footer h3, .footer h4 { color:white; margin:0 0 12px; }
+    .footer p, .footer a { color:#cbd5e1; margin:0; font-size:14px; }
+    .mobile-only { display:none; }
+    @media (max-width: 950px) {
+      .links { display:none; }
+      .mobile-only { display:inline-flex; }
+      .hero-content, .split, .quote-wrap, .proof-grid { grid-template-columns:1fr; }
+      .hero-content { min-height:auto; padding:72px 0; }
+      .trust-row, .stats-grid, .process-grid { grid-template-columns:repeat(2,1fr); }
+      .service-grid { grid-template-columns:1fr; }
+      .section-head { display:block; }
+      .section-head p { margin-top:14px; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .container { width:min(100% - 28px, 1180px); }
+      .topbar { display:none; }
+      .nav { height:68px; }
+      .nav-cta .btn-ghost { display:none; }
+      .hero-actions, .form-2, .feature-grid, .trust-row, .stats-grid, .process-grid, .footer-grid { grid-template-columns:1fr; display:grid; }
+      .hero p { font-size:17px; }
+      .quote-card { padding:22px; }
+      section { padding:64px 0; }
+      .image-stack { min-height:360px; }
+      .image-stack .main { height:300px; inset:0 30px 60px 0; width:calc(100% - 30px); }
+      .image-stack .small { height:160px; width:55%; }
     }
   </style>
 </head>
-
 <body>
-  <div class="page-wrap">
-    <header class="site-header">
-      <div class="site-header-inner">
-        <a class="site-logo" href="index.html" aria-label="HC Freight Home">
-          <span class="site-logo-mark">HC</span>
-          <span>HC Freight</span>
-        </a>
-        <nav class="site-nav" aria-label="Main navigation">
-          <a class="active" href="index.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="tracking.html">Tracking</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="faq.html">FAQ</a>
-        </nav>
+  <div class="topbar">
+    <div class="container">
+      <div>China-based freight forwarder · Air · Sea · Express · DDP door-to-door</div>
+      <div>WhatsApp: +86 195 6438 0551 · Email: inkovnoah@gmail.com</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="HC Freight home">
+        <span class="brand-mark">HC</span>
+        <span>HC Freight</span>
+      </a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="china-to-usa-shipping.html">China to USA</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com">Email</a>
+        <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener">WhatsApp</a>
       </div>
-    </header>
+    </div>
+  </header>
+
+  <main>
     <section class="hero">
-      <div class="container hero-grid">
+      <img class="hero-bg" src="assets/images/hero-warehouse.png" alt="Modern China logistics warehouse with cartons and pallets" />
+      <div class="container hero-content">
         <div>
-          <div class="eyebrow">HC Freight - International Freight Forwarder in China</div>
-          <h1>Reliable shipping from China to your door.</h1>
-          <p class="hero-text">
-            HC Freight provides air freight, sea freight, express delivery and DDP door-to-door shipping solutions for businesses, e-commerce sellers and personal shippers. From supplier pickup in China to final delivery overseas, we help make international shipping easier and clearer.
-          </p>
-
+          <div class="eyebrow"><span></span> China warehouse support + international delivery</div>
+          <h1>Door-to-door shipping from China, made clearer.</h1>
+          <p>Air freight, sea freight, express and DDP delivery for businesses, e-commerce sellers and personal shippers. We help receive, check, pack, label and ship your cargo from China to your final address.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#quoteForm">Get a Free Quote</a>
-            <a class="btn btn-blue" href="china-to-usa-shipping.html" target="_top">China to USA Shipping</a>
-            <a class="btn btn-light" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('home_hero_whatsapp')">WhatsApp Us Now</a>
+            <a class="btn btn-primary" href="#quote">Get a Free Quote</a>
+            <a class="btn btn-ghost" href="china-to-usa-shipping.html">China to USA Shipping</a>
           </div>
-
-          <div class="hero-badges">
-            <div class="badge-card"><span class="check">&#10003;</span>Air, sea and express shipping</div>
-            <div class="badge-card"><span class="check">&#10003;</span>DDP customs and taxes handled</div>
-            <div class="badge-card"><span class="check">&#10003;</span>China pickup and warehouse support</div>
-            <div class="badge-card"><span class="check">&#10003;</span>Amazon FBA and e-commerce support</div>
+          <div class="trust-row">
+            <div class="trust-item">0.5 kg+ accepted</div>
+            <div class="trust-item">DDP option available</div>
+            <div class="trust-item">Warehouse receiving</div>
+            <div class="trust-item">FBA support</div>
           </div>
         </div>
 
-        <aside class="overview-card">
-          <h2>What we do</h2>
-          <p>We help customers ship goods from China with route planning, cargo receiving, packing support, customs clearance and final delivery.</p>
-          <div class="mini-grid">
-            <div class="mini-card"><strong>3-7</strong><span>days express option</span></div>
-            <div class="mini-card"><strong>8-15</strong><span>days air DDP option</span></div>
-            <div class="mini-card"><strong>20-60</strong><span>days sea DDP option</span></div>
-            <div class="mini-card"><strong>DDP</strong><span>customs & taxes handled</span></div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>Freight solutions for different cargo needs</h2>
-          <p>Choose fast delivery, cost-effective bulk shipping, or express service for urgent parcels and samples.</p>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card featured">
-            <span class="tag">Fast & balanced</span>
-            <h3>Air Freight DDP</h3>
-            <div class="time">8-15 days</div>
-            <p>For e-commerce orders, medium-size cargo, urgent restocking and time-sensitive business shipments.</p>
-            <ul class="list">
-              <li>Door-to-door DDP option</li>
-              <li>Customs clearance and tax handling</li>
-              <li>Pickup and warehouse support in China</li>
-              <li>Delivery to address or FBA warehouse</li>
-            </ul>
-            <a class="btn btn-primary" href="#quoteForm" onclick="setMethod('Air Freight DDP')">Get Air Quote</a>
-          </article>
-
-          <article class="service-card">
-            <span class="tag">Cost-effective</span>
-            <h3>Sea Freight DDP</h3>
-            <div class="time">20-60 days</div>
-            <p>For bulk cargo, heavy goods, wholesalers, inventory replenishment and planned shipments.</p>
-            <ul class="list">
-              <li>Good for large-volume cargo</li>
-              <li>LCL and bulk cargo support</li>
-              <li>DDP customs and tax handling</li>
-              <li>Suitable for long-term stock planning</li>
-            </ul>
-            <a class="btn btn-blue" href="#quoteForm" onclick="setMethod('Sea Freight DDP')">Get Sea Quote</a>
-          </article>
-
-          <article class="service-card">
-            <span class="tag">Fastest</span>
-            <h3>Express Shipping</h3>
-            <div class="time">3-7 days</div>
-            <p>For samples, small parcels, urgent goods, personal shipments and important documents.</p>
-            <ul class="list">
-              <li>Fast international delivery</li>
-              <li>Good for samples and small parcels</li>
-              <li>Tracking support available</li>
-              <li>Pre-check available for special cargo</li>
-            </ul>
-            <a class="btn btn-blue" href="#quoteForm" onclick="setMethod('Express Shipping')">Get Express Quote</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-soft">
-      <div class="container route-highlight">
-        <div class="route-card">
-          <span class="tag">Main advertising route</span>
-          <h2>China to USA DDP Shipping</h2>
-          <p>Our dedicated China-to-USA page is built for customers who need door-to-door DDP shipping by air, sea or express, including customs clearance, tax handling and final delivery.</p>
-          <ul class="list">
-            <li>Air, sea and express options</li>
-            <li>DDP tax included service</li>
-            <li>Amazon FBA and e-commerce support</li>
-          </ul>
-          <a class="btn btn-primary" href="china-to-usa-shipping.html" target="_top">View China to USA Page</a>
-        </div>
-
-        <div class="route-features">
-          <div class="route-feature"><span>USA</span>Door-to-door DDP shipping</div>
-          <div class="route-feature"><span>FBA</span>Amazon warehouse delivery support</div>
-          <div class="route-feature"><span>Yiwu</span>China warehouse receiving support</div>
-          <div class="route-feature"><span>QC</span>Inspection, packing and labeling support</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container split">
-        <div class="panel">
-          <h3>Why choose HC Freight</h3>
-          <p>Instead of managing suppliers, warehouses, customs brokers and delivery providers separately, you can send shipment details to one team and get one door-to-door shipping plan.</p>
-          <ul class="list">
-            <li>Professional freight forwarder based in Yiwu, China</li>
-            <li>Supplier pickup or warehouse receiving in China</li>
-            <li>Air freight, sea freight and express route options</li>
-            <li>Customs clearance and tax handling under DDP service</li>
-            <li>E-commerce and Amazon FBA shipment support</li>
-          </ul>
-        </div>
-
-        <div class="panel">
-          <h3>Value-added support</h3>
-          <p>We help prepare cargo before international shipping so the process is easier for you and your supplier.</p>
-          <ul class="list">
-            <li>Warehouse receiving in China</li>
-            <li>Product inspection and photo confirmation</li>
-            <li>Packing and carton reinforcement</li>
-            <li>Labeling and FBA preparation support</li>
-            <li>Shipment consolidation from multiple suppliers</li>
-            <li>Route checking for sensitive cargo</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-soft" id="process">
-      <div class="container">
-        <div class="section-head">
-          <h2>How door-to-door shipping works</h2>
-          <p>Send cargo details, get a route recommendation, prepare the shipment in China, and receive final delivery at the destination.</p>
-        </div>
-
-        <div class="process-grid">
-          <div class="step">
-            <h3>Send details</h3>
-            <p>Share product name, photos, cartons, size, gross weight, supplier location and destination address.</p>
-          </div>
-          <div class="step">
-            <h3>Get quote</h3>
-            <p>We compare air, sea and express options based on cargo type, budget and delivery timeline.</p>
-          </div>
-          <div class="step">
-            <h3>Prepare in China</h3>
-            <p>We support pickup, warehouse receiving, packing, labeling, inspection and consolidation when needed.</p>
-          </div>
-          <div class="step">
-            <h3>Ship & deliver</h3>
-            <p>DDP service includes customs clearance, tax handling and final delivery to your address or warehouse.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container split">
-        <div class="panel">
-          <h3>Goods we can usually help with</h3>
-          <p>Please send product photos and details before shipping, especially for sensitive cargo.</p>
-          <ul class="list">
-            <li>General goods such as clothing, bags, accessories, toys and household items</li>
-            <li>E-commerce products and Amazon FBA inventory</li>
-            <li>Samples, small parcels and personal shipments</li>
-            <li>Some sensitive goods such as cosmetics, skincare or lithium battery products after review</li>
-            <li>Branded goods after compliance and route checking</li>
-          </ul>
-        </div>
-
-        <div class="panel">
-          <h3>What to send for a fast quote</h3>
-          <ul class="list">
-            <li>Product name and product photos</li>
-            <li>Carton quantity, carton size and gross weight</li>
-            <li>Pickup city or supplier address in China</li>
-            <li>Destination country, city, address or ZIP code</li>
-            <li>Preferred delivery timeline or shipping method</li>
-            <li>Special cargo details: battery, liquid, powder, magnet or brand</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="quote-section" id="quoteForm">
-      <div class="container quote-grid">
-        <div>
-          <div class="eyebrow">Request a quote</div>
-          <h2>Need a shipping quote from China?</h2>
-          <p class="hero-text">Send your cargo details now. We will help you choose air, sea or express shipping based on destination, weight, volume, product type and delivery deadline.</p>
-          <div class="hero-actions">
-            <a class="btn btn-light" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('home_quote_whatsapp_side')">Chat on WhatsApp</a>
-            <a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('home_quote_email_side')">Email Us</a>
-          </div>
-        </div>
-
-        <aside class="quote-card">
-          <h2>Request a freight quote</h2>
-          <p>Send cargo details and we will recommend the best shipping route.</p>
-
-          <form class="form-grid" onsubmit="sendWhatsAppQuote(event)">
-            <div class="form-row">
-              <label>
-                Your name
-                <input id="name" type="text" placeholder="Your name" required />
-              </label>
-              <label>
-                Contact
-                <input id="contactInfo" type="text" placeholder="WhatsApp or email" required />
-              </label>
+        <aside class="quote-card" id="quick-quote">
+          <h2>Request a route check</h2>
+          <p>Send basic cargo details. We will recommend air, sea or express options.</p>
+          <form class="form-grid" onsubmit="sendWhatsApp(event)">
+            <div class="form-2">
+              <input id="name" placeholder="Your name" />
+              <input id="contact" placeholder="WhatsApp / Email" />
             </div>
-
-            <label>
-              Destination country / address
-              <input id="destination" type="text" placeholder="Country, city, state or ZIP code" required />
-            </label>
-
-            <div class="form-row">
-              <label>
-                Shipping method
-                <select id="method" required>
-                  <option value="Not sure yet">Not sure yet</option>
-                  <option value="Air Freight DDP">Air Freight DDP</option>
-                  <option value="Sea Freight DDP">Sea Freight DDP</option>
-                  <option value="Express Shipping">Express Shipping</option>
-                </select>
-              </label>
-              <label>
-                Cargo type
-                <input id="cargoType" type="text" placeholder="Clothes, cosmetics, batteries..." />
-              </label>
+            <input id="destination" placeholder="Destination country / city / ZIP" />
+            <div class="form-2">
+              <select id="method">
+                <option>Not sure yet</option>
+                <option>Air Freight DDP</option>
+                <option>Sea Freight DDP</option>
+                <option>Express Shipping</option>
+                <option>Amazon FBA Delivery</option>
+              </select>
+              <input id="cargo" placeholder="Cargo type" />
             </div>
-
-            <label>
-              Cargo details
-              <textarea id="details" placeholder="Product name, cartons, weight, size, quantity, supplier city, photos or packing list details" required></textarea>
-            </label>
-
-            <div class="form-actions">
-              <button class="btn btn-primary" type="submit">Send by WhatsApp</button>
-              <button class="btn btn-blue" type="button" onclick="sendEmailQuote()">Send by Email</button>
-            </div>
-
-            <div class="microcopy">No packing list yet? Send photos and rough weight/size first.</div>
+            <textarea id="details" placeholder="Cartons, size, weight, pickup city, special cargo details..."></textarea>
+            <button class="btn btn-primary" type="submit">Send by WhatsApp</button>
           </form>
         </aside>
       </div>
     </section>
 
-    <section class="bg-soft" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <h2>Frequently asked questions</h2>
-          <p>Common questions before arranging international shipping from China.</p>
-        </div>
-
-        <div class="faq">
-          <details open>
-            <summary>What does DDP shipping mean?</summary>
-            <p>DDP shipping means customs clearance and import tax handling are included in the shipping solution. Final pricing depends on cargo type, route and destination.</p>
-          </details>
-          <details>
-            <summary>Can you pick up from my supplier in China?</summary>
-            <p>Yes. Pickup or warehouse receiving in China can be arranged. You can also ask your supplier to send goods to our warehouse for consolidation and preparation.</p>
-          </details>
-          <details>
-            <summary>Can you ship to Amazon FBA warehouses?</summary>
-            <p>Yes. We support Amazon FBA delivery, labeling and preparation support when needed. Please send the FBA destination, carton details and product information for checking.</p>
-          </details>
-          <details>
-            <summary>How do I get an accurate quote?</summary>
-            <p>Please provide product name, product photos, carton quantity, carton size, gross weight, supplier city and destination address or ZIP code.</p>
-          </details>
-          <details>
-            <summary>Can you ship batteries, cosmetics or branded goods?</summary>
-            <p>Some sensitive cargo can be handled after review. Please send photos, product description, packaging details and quantity before shipping so we can check the correct route.</p>
-          </details>
-        </div>
+    <div class="container stats">
+      <div class="stats-grid">
+        <div class="stat"><strong>3–7 days</strong><span>Express option for urgent parcels</span></div>
+        <div class="stat"><strong>8–15 days</strong><span>Air DDP route for balanced speed</span></div>
+        <div class="stat"><strong>20–60 days</strong><span>Sea DDP route for bulk cargo</span></div>
+        <div class="stat"><strong>1 team</strong><span>Pickup, warehouse, customs and delivery coordination</span></div>
       </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact HC Freight</h2>
-          <p>Send your shipment details through WhatsApp or email. We will check the best route and quote for your cargo.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>WhatsApp</h3>
-            <p>Fastest way to send product photos, packing list and destination details.</p>
-            <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('home_contact_whatsapp')">+86 195 6438 0551</a>
-          </div>
-
-          <div class="contact-card">
-            <h3>Email</h3>
-            <p>Best for packing lists, invoices and detailed shipment documents.</p>
-            <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com" onclick="trackContact('home_contact_email')">inkovnoah@gmail.com</a>
-          </div>
-
-          <div class="contact-card">
-            <h3>Company</h3>
-            <p>Zhejiang Hechen International Logistics Co., Ltd. Professional freight forwarder based in Yiwu, China.</p>
-            <a class="btn btn-light" href="#quoteForm">Request Quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="mobile-bottom">
-      <a class="btn btn-primary" href="#quoteForm">Free Quote</a>
-      <a class="btn btn-blue" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('home_mobile_whatsapp')">WhatsApp</a>
     </div>
-  </div>
+
+    <section class="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Freight solutions for different cargo needs.</h2>
+          <p>Choose fast delivery, cost-effective bulk shipping or express service for urgent parcels and samples.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <img src="assets/images/inspection-packing.png" alt="Warehouse inspection and packing support" />
+            <div class="service-body">
+              <span class="badge">Fast & balanced</span>
+              <h3>Air Freight DDP</h3>
+              <p>For e-commerce orders, medium-size cargo, urgent restocking and time-sensitive business shipments.</p>
+              <ul class="check-list">
+                <li>Door-to-door DDP option</li>
+                <li>Customs clearance and tax handling</li>
+                <li>Delivery to address or Amazon FBA</li>
+              </ul>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="assets/images/real-container-truck.jpg" alt="Container truck outside China logistics warehouse" />
+            <div class="service-body">
+              <span class="badge">Cost-effective</span>
+              <h3>Sea Freight DDP</h3>
+              <p>For bulk cargo, heavy goods, wholesalers, inventory replenishment and planned shipments.</p>
+              <ul class="check-list">
+                <li>Good for large-volume cargo</li>
+                <li>LCL and bulk cargo support</li>
+                <li>Suitable for long-term stock planning</li>
+              </ul>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="assets/images/loading-truck.png" alt="Cartons being loaded for international shipping" />
+            <div class="service-body">
+              <span class="badge">Fastest</span>
+              <h3>Express Shipping</h3>
+              <p>For samples, small parcels, urgent goods, personal shipments and important documents.</p>
+              <ul class="check-list">
+                <li>Fast international delivery</li>
+                <li>Good for samples and small parcels</li>
+                <li>Tracking support available</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split">
+        <div class="image-stack">
+          <img class="main" src="assets/images/real-office-front.jpg" alt="HC Freight company exterior in Yiwu China" />
+          <img class="small" src="assets/images/real-loading.jpg" alt="Real cargo loading work at warehouse" />
+        </div>
+        <div class="content">
+          <h2>More than shipping: we help prepare your cargo in China.</h2>
+          <p>Instead of managing suppliers, warehouses, customs brokers and delivery providers separately, you can send shipment details to one team and get one door-to-door shipping plan.</p>
+          <div class="feature-grid">
+            <div class="feature"><strong>Warehouse receiving</strong><span>Suppliers can send goods to our China warehouse for consolidation.</span></div>
+            <div class="feature"><strong>Inspection support</strong><span>Photo confirmation, carton checking and basic cargo review.</span></div>
+            <div class="feature"><strong>Packing & labeling</strong><span>Carton reinforcement, labels and FBA preparation when needed.</span></div>
+            <div class="feature"><strong>Route checking</strong><span>Air, sea or express recommendation based on cargo and deadline.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>How door-to-door shipping works.</h2>
+          <p>Simple steps from cargo details to final delivery overseas.</p>
+        </div>
+        <div class="process-grid">
+          <div class="step"><h3>Send details</h3><p>Share product photos, cartons, size, gross weight, supplier location and destination.</p></div>
+          <div class="step"><h3>Get quote</h3><p>We compare air, sea and express options based on cargo type, budget and timeline.</p></div>
+          <div class="step"><h3>Prepare in China</h3><p>We support pickup, receiving, packing, labeling, inspection and consolidation.</p></div>
+          <div class="step"><h3>Ship & deliver</h3><p>DDP service includes customs clearance, tax handling and final delivery.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="container">
+        <div class="section-head">
+          <h2>Real support, not only online promises.</h2>
+          <p>Use clean visuals for first impression, and real operation photos to build customer trust.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card">
+            <img src="assets/images/real-office-front.jpg" alt="Real company location and warehouse entrance" />
+            <div><h3>China-based logistics team</h3><p>Based in Yiwu, China, supporting supplier pickup, warehouse receiving and international route planning.</p></div>
+          </article>
+          <article class="proof-card">
+            <img src="assets/images/real-loading.jpg" alt="Real cargo loading and carton handling" />
+            <div><h3>Operation photos build trust</h3><p>Real packing, loading and warehouse photos help customers feel safer before sending cargo.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="quote">
+      <div class="container quote-wrap">
+        <div class="quote-info">
+          <h2>Need a shipping quote from China?</h2>
+          <p>Send your cargo details now. We will help you choose air, sea or express shipping based on destination, weight, volume, product type and delivery deadline.</p>
+          <ul>
+            <li>Product name and product photos</li>
+            <li>Carton quantity, size and gross weight</li>
+            <li>Pickup city or supplier address in China</li>
+            <li>Destination country, city, address or ZIP code</li>
+            <li>Battery, liquid, powder, magnet or brand details if any</li>
+          </ul>
+        </div>
+        <div class="quote-form">
+          <form class="form-grid" onsubmit="sendWhatsApp(event)">
+            <div class="form-2">
+              <input id="name2" placeholder="Your name" />
+              <input id="contact2" placeholder="WhatsApp / Email" />
+            </div>
+            <input id="destination2" placeholder="Destination country / address" />
+            <div class="form-2">
+              <select id="method2">
+                <option>Not sure yet</option>
+                <option>Air Freight DDP</option>
+                <option>Sea Freight DDP</option>
+                <option>Express Shipping</option>
+                <option>Amazon FBA Delivery</option>
+              </select>
+              <input id="cargo2" placeholder="Cargo type" />
+            </div>
+            <textarea id="details2" placeholder="Cargo details: cartons, size, gross weight, pickup city, delivery deadline..."></textarea>
+            <button class="btn btn-primary" type="submit">Send by WhatsApp</button>
+            <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com">Send by Email</a>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>HC Freight</h3>
+        <p>Zhejiang Hechen International Logistics Co., Ltd. Professional freight forwarder based in Yiwu, China.</p>
+      </div>
+      <div><h4>Services</h4><p>Air Freight DDP<br />Sea Freight DDP<br />Express Shipping<br />Amazon FBA Support</p></div>
+      <div><h4>Contact</h4><p>WhatsApp: +86 195 6438 0551<br />Email: inkovnoah@gmail.com</p></div>
+      <div><h4>Quick Links</h4><p><a href="services.html">Services</a><br /><a href="china-to-usa-shipping.html">China to USA</a><br /><a href="faq.html">FAQ</a><br /><a href="contact.html">Contact</a></p></div>
+    </div>
+  </footer>
 
   <script>
-    const WHATSAPP_NUMBER = '8619564380551';
-    const EMAIL_ADDRESS = 'inkovnoah@gmail.com';
-
-    function setMethod(method) {
-      const methodSelect = document.getElementById('method');
-      if (methodSelect) methodSelect.value = method;
-    }
-
-    function buildQuoteText() {
-      const name = document.getElementById('name').value.trim();
-      const contactInfo = document.getElementById('contactInfo').value.trim();
-      const destination = document.getElementById('destination').value.trim();
-      const method = document.getElementById('method').value;
-      const cargoType = document.getElementById('cargoType').value.trim();
-      const details = document.getElementById('details').value.trim();
-
-      return [
-        'Hello HC Freight, I would like a shipping quote from China.',
-        '',
-        `Name: ${name}`,
-        `Contact: ${contactInfo}`,
-        `Destination: ${destination}`,
-        `Preferred method: ${method}`,
-        `Cargo type: ${cargoType || 'Not provided'}`,
-        `Cargo details: ${details}`
-      ].join('\n');
-    }
-
-    function sendWhatsAppQuote(event) {
+    function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+    function sendWhatsApp(event) {
       event.preventDefault();
-      const text = encodeURIComponent(buildQuoteText());
-      trackContact('home_quote_whatsapp_submit');
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
-    }
-
-    function sendEmailQuote() {
-      const form = document.querySelector('form');
-      if (!form.reportValidity()) return;
-      const subject = encodeURIComponent('Shipping Quote Request from China');
-      const body = encodeURIComponent(buildQuoteText());
-      trackContact('home_quote_email_click');
-      window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
-    }
-
-    function trackContact(eventName) {
-      if (typeof gtag === 'function') {
-        gtag('event', eventName, {
-          event_category: 'lead',
-          event_label: 'home_page'
-        });
-      }
+      const suffix = event.target.closest('#quote') ? '2' : '';
+      const message = [
+        'Hello HC Freight, I need a shipping quote from China.',
+        '',
+        'Name: ' + val('name' + suffix),
+        'Contact: ' + val('contact' + suffix),
+        'Destination: ' + val('destination' + suffix),
+        'Shipping method: ' + val('method' + suffix),
+        'Cargo type: ' + val('cargo' + suffix),
+        'Cargo details: ' + val('details' + suffix)
+      ].join('\n');
+      window.open('https://wa.me/8619564380551?text=' + encodeURIComponent(message), '_blank');
     }
   </script>
 </body>
