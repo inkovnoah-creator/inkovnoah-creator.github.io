@@ -3,487 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipment Tracking | HC Freight</title>
+  <meta name="description" content="Track your HC Freight shipment. Enter one or more tracking numbers to open shipment updates in 17TRACK." />
+
+  <!-- Google tag (gtag.js) - kept for analytics / Google Ads conversion paths -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGH7EBZQD2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SGH7EBZQD2');
+  </script>
+
+  <link rel="preload" as="image" href="assets/images/warehouse-sorting.jpg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-    :root {
-      --primary: #0a3d7c;
-      --primary-dark: #06234a;
-      --accent: #ffb01f;
-      --accent-dark: #e99b00;
-      --text: #142033;
-      --muted: #5b667a;
-      --soft: #f4f8fd;
-      --line: #dce6f2;
-      --white: #ffffff;
-      --green: #14845f;
-      --red: #b42318;
-      --shadow: 0 18px 48px rgba(10, 61, 124, 0.14);
-      --radius: 22px;
-      --max: 1180px;
+    .tracking-hero .hero-content {
+      grid-template-columns: 1fr .92fr;
+      min-height: 580px;
+      padding: 78px 0;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+    .tracking-panel {
+      background: rgba(255,255,255,.98);
       color: var(--text);
-      background: #ffffff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    textarea {
-      font: inherit;
-    }
-
-    .page-wrap {
-      width: 100%;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 82% 8%, rgba(255, 176, 31, 0.24), transparent 30%),
-        radial-gradient(circle at 12% 82%, rgba(10, 61, 124, 0.10), transparent 28%),
-        linear-gradient(135deg, #eef5ff 0%, #ffffff 54%, #f8fbff 100%);
-      padding: 64px 0 58px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 38px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 13px;
-      border-radius: 999px;
-      color: var(--primary);
-      background: rgba(10, 61, 124, 0.08);
-      border: 1px solid rgba(10, 61, 124, 0.14);
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-    }
-
-    h1 {
-      font-size: clamp(42px, 5.4vw, 68px);
-      max-width: 760px;
-    }
-
-    .hero-text {
-      margin: 20px 0 26px;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 680px;
-    }
-
-    .hero-badges {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      max-width: 690px;
-    }
-
-    .badge-card {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.84);
-      font-weight: 850;
-    }
-
-    .check {
-      width: 22px;
-      height: 22px;
-      flex: 0 0 22px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      color: #ffffff;
-      background: var(--green);
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .tracking-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 30px;
       padding: 30px;
+      box-shadow: var(--shadow);
     }
-
-    .tracking-card h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .tracking-panel h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 30px;
+      letter-spacing: -.035em;
+      line-height: 1.15;
     }
-
-    .tracking-card p {
+    .tracking-panel p {
       margin: 0 0 18px;
       color: var(--muted);
+      font-size: 15px;
     }
-
-    label {
-      display: grid;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 850;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 150px;
-      resize: vertical;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      color: var(--text);
-      outline: none;
-      background: #ffffff;
-      transition: border 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    textarea:focus {
-      border-color: rgba(10, 61, 124, 0.55);
-      box-shadow: 0 0 0 4px rgba(10, 61, 124, 0.08);
-    }
-
-    .button-row {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 0;
-      cursor: pointer;
+    .tracking-label {
+      display: block;
+      color: var(--navy);
       font-weight: 900;
-      white-space: nowrap;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      margin-bottom: 10px;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
+    .tracking-panel textarea {
+      min-height: 150px;
+      font-size: 16px;
     }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #182230;
-      box-shadow: 0 12px 24px rgba(255, 176, 31, 0.28);
+    .tracking-actions {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 12px;
+      margin-top: 12px;
     }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .btn-blue {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 12px 24px rgba(10, 61, 124, 0.22);
-    }
-
-    .btn-light {
-      background: #ffffff;
-      color: var(--primary);
-      border: 1px solid var(--line);
-    }
-
     .status-box {
       display: none;
       margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-size: 14px;
+      padding: 13px 15px;
+      border-radius: 16px;
       font-weight: 800;
+      font-size: 14px;
     }
-
     .status-box.show {
       display: block;
     }
-
     .status-box.success {
-      color: var(--green);
-      background: rgba(20, 132, 95, 0.08);
-      border: 1px solid rgba(20, 132, 95, 0.16);
+      background: #e9f8ef;
+      color: #0f6b3b;
+      border: 1px solid #bce9ca;
     }
-
     .status-box.error {
-      color: var(--red);
-      background: rgba(180, 35, 24, 0.08);
-      border: 1px solid rgba(180, 35, 24, 0.16);
+      background: #fff1f1;
+      color: #b42318;
+      border: 1px solid #ffd1d1;
     }
-
-    .microcopy {
+    .tracking-note {
       margin-top: 12px;
       color: var(--muted);
       font-size: 13px;
-      text-align: center;
     }
-
-    section {
-      padding: 58px 0;
-    }
-
-    .bg-soft {
-      background: var(--soft);
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 34px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(31px, 4vw, 46px);
-    }
-
-    .section-head p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .help-grid {
+    .tracking-mini-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .help-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 12px 34px rgba(20, 32, 51, 0.06);
-      padding: 24px;
-    }
-
-    .icon-box {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      color: #ffffff;
-      background: var(--primary);
-      font-weight: 950;
-      margin-bottom: 16px;
-    }
-
-    .help-card h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .help-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .faq {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
+      margin-top: 30px;
     }
-
-    details {
-      background: #ffffff;
-      border: 1px solid var(--line);
+    .tracking-mini {
+      padding: 15px 16px;
       border-radius: 18px;
-      padding: 18px 20px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #eff6ff;
+      font-weight: 800;
     }
-
-    summary {
-      cursor: pointer;
-      color: var(--text);
-      font-weight: 900;
-    }
-
-    details p {
-      margin: 12px 0 0;
-      color: var(--muted);
-    }
-
-    .contact-band {
+    .support-band {
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      color: #fff;
+      border-radius: 30px;
+      padding: 34px;
       display: grid;
       grid-template-columns: 1fr auto auto;
-      gap: 12px;
       align-items: center;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: #ffffff;
-      border-radius: 30px;
-      padding: 36px;
+      gap: 14px;
       box-shadow: var(--shadow);
     }
-
-    .contact-band h2 {
+    .support-band h2 {
+      margin: 0 0 8px;
       font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -.04em;
+      line-height: 1.08;
     }
-
-    .contact-band p {
-      margin: 10px 0 0;
-      color: rgba(255, 255, 255, 0.82);
-      max-width: 680px;
+    .support-band p {
+      margin: 0;
+      color: #dbeafe;
+      max-width: 720px;
     }
-
-    .mobile-bottom {
-      display: none;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .contact-band {
+    @media(max-width:950px) {
+      .tracking-hero .hero-content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .support-band {
         grid-template-columns: 1fr;
       }
-
-      .help-grid {
-        grid-template-columns: 1fr 1fr;
-      }
     }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-      .hero {
-        padding: 40px 0 38px;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .hero-badges,
-      .help-grid,
-      .button-row {
-        grid-template-columns: 1fr;
-      }
-
-      .tracking-card,
-      .help-card,
-      .contact-band {
+    @media(max-width:600px) {
+      .tracking-panel {
         padding: 22px;
       }
-
-      section {
-        padding: 46px 0;
-      }
-
-      .mobile-bottom {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        position: fixed;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        z-index: 999;
-        padding: 8px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.94);
-        border: 1px solid var(--line);
-        box-shadow: 0 14px 34px rgba(20,32,51,0.18);
-      }
-
-      .mobile-bottom .btn {
-        padding: 11px 8px;
-        min-height: 42px;
+      .tracking-actions,
+      .tracking-mini-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <header style="background:#ffffff;border-bottom:1px solid #dce6f2;position:sticky;top:0;z-index:1000;">
-      <div style="width:min(1180px, calc(100% - 32px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:18px;flex-wrap:wrap;">
-        <a href="index.html" style="font-weight:900;color:#0a3d7c;font-size:18px;">HC Freight</a>
-        <nav style="display:flex;gap:22px;align-items:center;font-weight:800;color:#142033;flex-wrap:wrap;">
-          <a href="index.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="tracking.html">Tracking</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="faq.html">FAQ</a>
-        </nav>
-      </div>
-    </header>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">HC Freight Shipment Tracking</div>
-          <h1>Track your shipment from China to final delivery.</h1>
-          <p class="hero-text">
-            Enter your HC Freight tracking number below. You can track up to 10 shipments at once. The tracking result will open in a new 17TRACK window.
-          </p>
+  <div class="topbar">
+    <div class="container">
+      <div>China-based freight forwarder · Air · Sea · Express · DDP door-to-door</div>
+      <div>WhatsApp: +86 195 6438 0551 · Email: inkovnoah@gmail.com</div>
+    </div>
+  </div>
 
-          <div class="hero-badges">
-            <div class="badge-card"><span class="check">&#10003;</span>Supports multiple tracking numbers</div>
-            <div class="badge-card"><span class="check">&#10003;</span>Global shipment tracking</div>
-            <div class="badge-card"><span class="check">&#10003;</span>Air, sea and express updates</div>
-            <div class="badge-card"><span class="check">&#10003;</span>WhatsApp support if no update appears</div>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="HC Freight home">
+        <span class="brand-mark">HC</span>
+        <span>HC Freight</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="" href="services.html">Services</a><a class="active" href="tracking.html">Tracking</a><a class="" href="about.html">About</a><a class="" href="faq.html">FAQ</a><a class="" href="contact.html">Contact</a></nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('email_click')">Email</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('header_whatsapp_click')">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero tracking-hero">
+      <img class="hero-img" src="assets/images/warehouse-sorting.jpg" alt="Shipment tracking support in a logistics warehouse" />
+      <div class="container hero-content">
+        <div>
+          <div class="eyebrow"><span></span> HC Freight Shipment Tracking</div>
+          <h1>Track your shipment from China to final delivery.</h1>
+          <p>Enter your HC Freight tracking number below. You can check up to 10 shipments at once. The tracking result will open in a new 17TRACK window.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#trackingBox">Track Now</a>
+            <a class="btn btn-light" href="javascript:void(0)" onclick="openWhatsApp('tracking_hero_whatsapp')">Ask by WhatsApp</a>
+          </div>
+          <div class="tracking-mini-grid">
+            <div class="tracking-mini">Multiple numbers supported</div>
+            <div class="tracking-mini">Air, sea and express updates</div>
+            <div class="tracking-mini">17TRACK result window</div>
+            <div class="tracking-mini">WhatsApp help if delayed</div>
           </div>
         </div>
 
-        <aside class="tracking-card">
+        <aside class="tracking-panel" id="trackingBox">
           <h2>Track Your Shipment</h2>
-          <p>Enter one tracking number per line, or separate numbers by commas or spaces.</p>
+          <p>Enter one tracking number per line, or separate numbers by commas, spaces or semicolons.</p>
 
-          <label for="trackingNumbers">
-            Tracking numbers
-            <textarea id="trackingNumbers" placeholder="Example: 1Z0368FC0306991805"></textarea>
-          </label>
+          <form onsubmit="trackShipment(event)">
+            <label class="tracking-label" for="trackingNumbers">Tracking numbers</label>
+            <textarea id="trackingNumbers" placeholder="Example: 1Z0368FC0306991805" autocomplete="off" required></textarea>
 
-          <div class="button-row">
-            <button class="btn btn-primary" type="button" onclick="trackShipment()">Track Now</button>
-            <button class="btn btn-light" type="button" onclick="clearTracking()">Clear</button>
-          </div>
+            <div class="tracking-actions">
+              <button class="btn btn-primary" type="submit">Track Now</button>
+              <button class="btn btn-ghost" type="button" onclick="clearTracking()">Clear</button>
+            </div>
 
-          <div id="statusBox" class="status-box"></div>
-
-          <div class="microcopy">Maximum 10 tracking numbers per search.</div>
+            <div id="statusBox" class="status-box" role="status" aria-live="polite"></div>
+            <div class="tracking-note">Maximum 10 tracking numbers per search.</div>
+          </form>
         </aside>
       </div>
     </section>
@@ -491,53 +208,50 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <h2>How to use shipment tracking</h2>
+          <h2>How to use shipment tracking.</h2>
           <p>Tracking information may take time to update after pickup, customs clearance or transfer to a local delivery carrier.</p>
         </div>
 
-        <div class="help-grid">
-          <div class="help-card">
-            <div class="icon-box">1</div>
+        <div class="grid-3">
+          <div class="step">
+            <span class="num">01</span>
             <h3>Enter tracking number</h3>
             <p>Copy your HC Freight tracking number into the box. You can enter multiple numbers at the same time.</p>
           </div>
-          <div class="help-card">
-            <div class="icon-box">2</div>
+          <div class="step">
+            <span class="num">02</span>
             <h3>Open tracking result</h3>
             <p>Click Track Now. Your tracking details will open in a new 17TRACK window for shipment updates.</p>
           </div>
-          <div class="help-card">
-            <div class="icon-box">3</div>
+          <div class="step">
+            <span class="num">03</span>
             <h3>Need help?</h3>
-            <p>If tracking does not update, contact us with your tracking number and we will help check the shipment status.</p>
+            <p>If tracking does not update, send us your tracking number and we will help check the shipment status.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-soft">
+    <section class="bg">
       <div class="container">
         <div class="section-head">
           <h2>Tracking FAQ</h2>
           <p>Common questions when checking China-to-USA and international shipment updates.</p>
         </div>
 
-        <div class="faq">
+        <div class="faq-list">
           <details open>
             <summary>Why is my tracking number not showing updates?</summary>
             <p>Tracking updates may take time to appear after shipment pickup, warehouse processing, customs clearance or transfer to the final delivery carrier. Please check again later or contact us with your tracking number.</p>
           </details>
-
           <details>
             <summary>How many tracking numbers can I check at once?</summary>
-            <p>You can enter up to 10 tracking numbers at once. Use one number per line, or separate numbers by commas or spaces.</p>
+            <p>You can enter up to 10 tracking numbers at once. Use one number per line, or separate numbers by commas, spaces or semicolons.</p>
           </details>
-
           <details>
             <summary>What should I do if the tracking result looks delayed?</summary>
-            <p>Some routes may have slower updates during customs clearance, flight/sea departure, port processing or local delivery transfer. Send us your tracking number and we can help check the status.</p>
+            <p>Some routes may have slower updates during customs clearance, flight or sea departure, port processing or local delivery transfer. Send us your tracking number and we can help check the status.</p>
           </details>
-
           <details>
             <summary>Can I track air, sea and express shipments here?</summary>
             <p>Yes. You can use this page to check tracking numbers for air freight, sea freight and express shipments handled by HC Freight.</p>
@@ -548,30 +262,52 @@
 
     <section>
       <div class="container">
-        <div class="contact-band">
+        <div class="support-band">
           <div>
             <h2>Need help with your tracking number?</h2>
             <p>Send your tracking number to us by WhatsApp or email. We will help check the shipment status.</p>
           </div>
-          <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('tracking_whatsapp')">WhatsApp Us</a>
-          <a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('tracking_email')">Email Us</a>
+          <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('tracking_support_whatsapp')">WhatsApp Us</a>
+          <a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('tracking_support_email')">Email Us</a>
         </div>
       </div>
     </section>
+  </main>
 
-    <div class="mobile-bottom">
-      <a class="btn btn-primary" href="https://wa.me/8619564380551" target="_blank" rel="noopener" onclick="trackContact('tracking_mobile_whatsapp')">WhatsApp</a>
-      <a class="btn btn-blue" href="mailto:inkovnoah@gmail.com" onclick="trackContact('tracking_mobile_email')">Email Us</a>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>HC Freight</h3>
+        <p>Door-to-door shipping from China by air, sea, express and DDP. Warehouse receiving, inspection, packing, labeling and Amazon FBA support.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <p><a href="services.html">Air Freight DDP</a><br><a href="services.html">Sea Freight DDP</a><br><a href="services.html">Express Shipping</a></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <p><a href="about.html">About</a><br><a href="faq.html">FAQ</a><br><a href="tracking.html">Tracking</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com</p>
+      </div>
     </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a class="btn btn-primary" href="#trackingBox">Track Now</a>
+    <a class="btn btn-dark" href="javascript:void(0)" onclick="openWhatsApp('mobile_tracking_whatsapp')">WhatsApp</a>
   </div>
 
+  <script src="assets/js/site.js"></script>
   <script>
     const MAX_TRACKING_NUMBERS = 10;
     const FORWARDER_CODE = '191909';
 
     function parseTrackingNumbers(input) {
       const rawNumbers = input
-        .split(/[\s,,;;]+/)
+        .split(/[\s,;]+/)
         .map(function(number) {
           return number.trim();
         })
@@ -595,7 +331,11 @@
       statusBox.className = 'status-box show ' + type;
     }
 
-    function trackShipment() {
+    function trackShipment(event) {
+      if (event) {
+        event.preventDefault();
+      }
+
       const input = document.getElementById('trackingNumbers').value.trim();
 
       if (!input) {
@@ -619,7 +359,14 @@
       const url = 'https://t.17track.net/en#nums=' + query + '&fc=' + FORWARDER_CODE;
 
       showStatus('Opening tracking result for ' + numbers.length + ' shipment(s)...', 'success');
-      trackContact('tracking_submit');
+
+      if (typeof trackContact === 'function') {
+        trackContact('tracking_submit', {
+          tracking_count: numbers.length,
+          tracking_provider: '17track'
+        });
+      }
+
       window.open(url, '_blank');
     }
 
@@ -628,15 +375,6 @@
       const statusBox = document.getElementById('statusBox');
       statusBox.textContent = '';
       statusBox.className = 'status-box';
-    }
-
-    function trackContact(eventName) {
-      if (typeof gtag === 'function') {
-        gtag('event', eventName, {
-          event_category: 'lead',
-          event_label: 'tracking_page'
-        });
-      }
     }
   </script>
 </body>
