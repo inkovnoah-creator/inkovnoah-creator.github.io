@@ -141,6 +141,32 @@
       }
     }
   </style>
+
+  <style id="hc-mobile-nav-fix">
+    .mobile-menu { display: none !important; }
+    .menu-toggle { display: none !important; appearance: none; border: 1px solid #dbe5ef; background: #fff; color: #07182f; border-radius: 999px; width: 48px; height: 48px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; box-shadow: 0 10px 30px rgba(8, 31, 65, .08); }
+    .menu-toggle span { display: block; width: 19px; height: 2px; background: #07182f; border-radius: 999px; margin: 0; }
+    @media (max-width: 900px) {
+      .topbar { display: none !important; }
+      .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.96); backdrop-filter: blur(16px); border-bottom: 1px solid #e6edf5; }
+      .header .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .nav-links { display: none !important; }
+      .nav-cta { display: flex; align-items: center; gap: 10px; }
+      .nav-cta .btn-ghost { display: none !important; }
+      .nav-cta .btn-primary { padding: 12px 18px; font-size: 14px; }
+      .menu-toggle { display: inline-flex !important; flex: 0 0 auto; }
+      .mobile-menu { position: absolute; left: 14px; right: 14px; top: calc(100% + 8px); z-index: 1001; background: #ffffff; border: 1px solid #dbe5ef; border-radius: 20px; padding: 10px; box-shadow: 0 24px 70px rgba(8,31,65,.18); flex-direction: column; gap: 4px; }
+      .mobile-menu.is-open { display: flex !important; }
+      .mobile-menu a { display: block; padding: 14px 16px; border-radius: 14px; color: #07182f; font-weight: 800; text-decoration: none; }
+      .mobile-menu a.active, .mobile-menu a:hover { background: #edf5ff; color: #1769ff; }
+      .brand span:last-child { font-size: 17px; }
+      .brand-mark { width: 42px; height: 42px; }
+    }
+    @media (min-width: 901px) {
+      .mobile-menu, .mobile-menu.is-open, .menu-toggle { display: none !important; }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -376,5 +402,44 @@
       statusBox.className = 'status-box';
     }
   </script>
+
+  <script id="hc-mobile-nav-script">
+    (function () {
+      function closeAllMenus() {
+        document.querySelectorAll('.mobile-menu.is-open').forEach(function (menu) {
+          menu.classList.remove('is-open');
+        });
+        document.querySelectorAll('.menu-toggle[aria-expanded="true"]').forEach(function (btn) {
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.menu-toggle').forEach(function (btn) {
+        var header = btn.closest('.header') || document;
+        var menuId = btn.getAttribute('aria-controls');
+        var menu = menuId ? document.getElementById(menuId) : header.querySelector('.mobile-menu');
+        if (!menu) return;
+        btn.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          var willOpen = !menu.classList.contains('is-open');
+          closeAllMenus();
+          if (willOpen) {
+            menu.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', closeAllMenus);
+        });
+      });
+      document.addEventListener('click', function (event) {
+        if (!event.target.closest('.header')) closeAllMenus();
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) closeAllMenus();
+      });
+    })();
+  </script>
+
 </body>
 </html>
