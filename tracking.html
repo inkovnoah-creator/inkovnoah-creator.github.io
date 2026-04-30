@@ -153,16 +153,15 @@
 
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="HC Freight home">
-        <span class="brand-mark">HC</span>
-        <span>HC Freight</span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="" href="services.html">Services</a><a class="active" href="tracking.html">Tracking</a><a class="" href="about.html">About</a><a class="" href="faq.html">FAQ</a><a class="" href="contact.html">Contact</a></nav>
+      <a class="brand" href="index.html" aria-label="HC Freight home"><span class="brand-mark">HC</span><span>HC Freight</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a class="active" href="tracking.html">Tracking</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('email_click')">Email</a>
+        <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('header_email_click')">Email</a>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('header_whatsapp_click')">WhatsApp</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a class="active" href="tracking.html">Tracking</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
   </header>
 
   <main>
