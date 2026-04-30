@@ -14,16 +14,51 @@
     gtag('js', new Date());
     gtag('config', 'G-SGH7EBZQD2');
   </script>
+
+  <style>
+    .section-soft { background: #f6f9fc; }
+    .cta-panel { display:flex; justify-content:space-between; gap:28px; align-items:center; padding:34px; border-radius:28px; background:#fff; border:1px solid #e6edf5; box-shadow:0 18px 50px rgba(8,31,65,.08); }
+    .cta-panel h2 { margin:0 0 10px; color:#07182f; font-size:32px; letter-spacing:-.035em; }
+    .cta-panel p { margin:0; color:#64748b; max-width:760px; }
+    .cta-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
+    @media (max-width: 760px) { .cta-panel { display:block; padding:24px; } .cta-actions { margin-top:20px; justify-content:flex-start; } }
+  </style>
 </head>
 <body>
   <div class="topbar">
     <div class="container"><div>China-based freight forwarder · Air · Sea · Express · DDP door-to-door</div><div>WhatsApp: +86 195 6438 0551 · Email: inkovnoah@gmail.com</div></div>
   </div>
-  <header class="header"><div class="container nav"><a class="brand" href="index.html"><span class="brand-mark">HC</span><span>HC Freight</span></a><nav class="nav-links" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="" href="services.html">Services</a><a class="" href="tracking.html">Tracking</a><a class="" href="about.html">About</a><a class="" href="faq.html">FAQ</a><a class="" href="contact.html">Contact</a></nav><div class="nav-cta"><a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('header_email_click')">Email</a><a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('header_whatsapp_click')">WhatsApp</a></div></div></header>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="HC Freight home"><span class="brand-mark">HC</span><span>HC Freight</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="tracking.html">Tracking</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('header_email_click')">Email</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('header_whatsapp_click')">WhatsApp</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="tracking.html">Tracking</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
+  </header>
 
 <main>
   <section class="hero hero-brand slim"><img class="hero-img" src="assets/images/warehouse-hero.jpg" alt="Thank you"><div class="container hero-content"><div><div class="eyebrow"><span></span> Quote request received</div><h1>Thank you. We will review your shipment details.</h1><p>For a faster quote, send product photos, packing list, invoice or carton details by WhatsApp or Email.</p><div class="hero-actions"><a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('thank_you_whatsapp_top')">Send Details on WhatsApp</a><a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('thank_you_email_click')">Send Details by Email</a><a class="btn btn-light" href="index.html">Back to Home</a></div></div></div></section>
-  <section><div class="container"><div class="section-head"><h2>Information that helps us quote faster.</h2><p>Send these details through WhatsApp or Email.</p></div><div class="grid-4"><div class="step"><span class="num">01</span><h3>Cargo photos</h3><p>Product and carton photos.</p></div><div class="step"><span class="num">02</span><h3>Packing list</h3><p>Cartons, weight and size.</p></div><div class="step"><span class="num">03</span><h3>Destination</h3><p>Country, city and ZIP code.</p></div><div class="step"><span class="num">04</span><h3>Route preference</h3><p>Air, sea, express or DDP.</p></div></div><br><div class="notice">Google Analytics tag is preserved on this page. If you use Google Ads conversion by thank-you page visit, this page can still be used as the conversion destination.</div></div></section>
+  <section><div class="container"><div class="section-head"><h2>Information that helps us quote faster.</h2><p>Send these details through WhatsApp or Email.</p></div><div class="grid-4"><div class="step"><span class="num">01</span><h3>Cargo photos</h3><p>Product and carton photos.</p></div><div class="step"><span class="num">02</span><h3>Packing list</h3><p>Cartons, weight and size.</p></div><div class="step"><span class="num">03</span><h3>Destination</h3><p>Country, city and ZIP code.</p></div><div class="step"><span class="num">04</span><h3>Route preference</h3><p>Air, sea, express or DDP.</p></div></div></div></section>
+
+  <section class="section-soft">
+    <div class="container">
+      <div class="cta-panel">
+        <div>
+          <h2>Need a faster reply?</h2>
+          <p>Please send cargo photos, carton quantity, carton size, gross weight, supplier city in China and destination ZIP code. If the goods contain battery, liquid, powder or brand items, please mention it clearly.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('thank_you_whatsapp_bottom')">WhatsApp Us</a>
+          <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com?subject=Shipment%20Details%20for%20Quote%20-%20HC%20Freight" onclick="trackContact('thank_you_email_bottom')">Email Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 <script>if (typeof gtag === "function") { gtag("event", "thank_you_page_view", { event_category:"lead", event_label:"quote_request_received" }); }</script>
   <footer class="footer"><div class="container footer-grid"><div><h3>HC Freight</h3><p>Door-to-door shipping from China by air, sea, express and DDP. Warehouse receiving, inspection, packing, labeling and Amazon FBA support.</p></div><div><h4>Services</h4><p><a href="services.html">Air Freight DDP</a><br><a href="services.html">Sea Freight DDP</a><br><a href="services.html">Express Shipping</a><br><a href="services.html">Amazon FBA Support</a></p></div><div><h4>Company</h4><p><a href="about.html">About</a><br><a href="faq.html">FAQ</a><br><a href="tracking.html">Tracking</a><br><a href="contact.html">Contact</a></p></div><div><h4>Contact</h4><p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com<br>Yiwu, China warehouse support</p></div></div></footer>
