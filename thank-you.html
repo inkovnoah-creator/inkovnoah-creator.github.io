@@ -22,6 +22,21 @@
     .cta-panel p { margin:0; color:#64748b; max-width:760px; }
     .cta-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
     @media (max-width: 760px) { .cta-panel { display:block; padding:24px; } .cta-actions { margin-top:20px; justify-content:flex-start; } }
+  
+
+    /* Fix: keep mobile navigation hidden on desktop even if an older stylesheet is cached. */
+    .mobile-menu { display: none !important; }
+    @media (min-width: 951px) {
+      .menu-toggle { display: none !important; }
+      .mobile-menu { display: none !important; }
+      .nav-links { display: flex !important; }
+    }
+    @media (max-width: 950px) {
+      .nav-links { display: none !important; }
+      .menu-toggle { display: inline-flex !important; align-items: center; justify-content: center; flex-direction: column; gap: 4px; }
+      .mobile-menu.open { display: block !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -64,5 +79,20 @@
   <footer class="footer"><div class="container footer-grid"><div><h3>HC Freight</h3><p>Door-to-door shipping from China by air, sea, express and DDP. Warehouse receiving, inspection, packing, labeling and Amazon FBA support.</p></div><div><h4>Services</h4><p><a href="services.html">Air Freight DDP</a><br><a href="services.html">Sea Freight DDP</a><br><a href="services.html">Express Shipping</a><br><a href="services.html">Amazon FBA Support</a></p></div><div><h4>Company</h4><p><a href="about.html">About</a><br><a href="faq.html">FAQ</a><br><a href="tracking.html">Tracking</a><br><a href="contact.html">Contact</a></p></div><div><h4>Contact</h4><p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com<br>Yiwu, China warehouse support</p></div></div></footer>
   <div class="mobile-bar"><a class="btn btn-primary" href="tracking.html">Tracking</a><a class="btn btn-dark" href="javascript:void(0)" onclick="openWhatsApp('mobile_whatsapp_click')">WhatsApp</a></div>
   <script src="assets/js/site.js"></script>
+
+  <script>
+    // Fallback mobile-menu toggle for this page, in case older cached JS is still loading.
+    document.addEventListener('DOMContentLoaded', function () {
+      var menuButton = document.querySelector('.menu-toggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+      if (!menuButton || !mobileMenu) return;
+      menuButton.addEventListener('click', function () {
+        var isOpen = mobileMenu.classList.toggle('open');
+        menuButton.classList.toggle('open', isOpen);
+        menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+  </script>
+
 </body>
 </html>
