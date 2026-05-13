@@ -1,6 +1,6 @@
 const WHATSAPP_NUMBER = '8619564380551';
 const EMAIL_ADDRESS = 'inkovnoah@gmail.com';
-const THANK_YOU_URL = 'thank-you.html';
+const THANK_YOU_URL = '/thank-you';
 
 function trackContact(eventName, extra = {}, callback) {
   const payload = Object.assign({ event_category: 'lead', event_label: window.location.pathname || 'website' }, extra);
@@ -16,13 +16,10 @@ function trackContact(eventName, extra = {}, callback) {
 
 function buildQuoteMessage(form) {
   const get = (name) => (form.querySelector(`[name="${name}"]`) || {}).value || '';
-  const isUsaLanding = form.dataset.thankYou === 'true' || /china-to-usa-shipping\.html$/.test(window.location.pathname);
-  const firstLine = isUsaLanding
-    ? 'Hello HC Freight, I would like a China to USA DDP shipping quote.'
-    : 'Hello HC Freight, I would like a shipping quote.';
-  return [firstLine,'',`Name: ${get('name')}`,`Contact: ${get('contact')}`,`Destination: ${get('destination')}`,`Preferred service: ${get('method')}`,`Cargo: ${get('cargo')}`,`Details: ${get('details')}`].join('\n');
+  const firstLine = 'Hello HC Freight, I would like a DDP door-to-door shipping quote from China.';
+  return [firstLine,'',`Name: ${get('name')}`,`Contact: ${get('contact')}`,`Delivery address: ${get('destination')}`,`Preferred service: ${get('method')}`,`Cargo: ${get('cargo')}`,`Details: ${get('details')}`].join('\n');
 }
-function shouldGoToThankYou(form) { return form.dataset.thankYou === 'true' || /china-to-usa-shipping\.html$/.test(window.location.pathname); }
+function shouldGoToThankYou(form) { return form.dataset.thankYou === 'true'; }
 function goToThankYouPage() { setTimeout(() => { window.location.href = THANK_YOU_URL; }, 600); }
 function sendWhatsAppQuote(event) {
   event.preventDefault();
@@ -42,7 +39,7 @@ function sendEmailQuote(buttonOrEvent) {
   if (!form) return;
   if (!form.reportValidity()) return;
   const isConversionLanding = shouldGoToThankYou(form);
-  const subject = isConversionLanding ? 'China to USA DDP Quote Request - HC Freight' : 'Freight Quote Request - HC Freight';
+  const subject = isConversionLanding ? 'DDP Door-to-Door Shipping Quote - HC Freight' : 'Freight Quote Request - HC Freight';
   const body = buildQuoteMessage(form) + '\n\nPlease reply with available shipping options and required documents.\n\nThank you.';
   const mailto = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const formName = form.dataset.formName || 'quote_form';
