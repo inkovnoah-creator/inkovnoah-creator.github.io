@@ -2,7 +2,7 @@ const WHATSAPP_NUMBER = '8619564380551';
 const EMAIL_ADDRESS = 'inkovnoah@gmail.com';
 const THANK_YOU_URL = '/thank-you';
 
-const DEFAULT_WHATSAPP_MESSAGE = 'Hello HC Freight, I want to ship goods from China. Can you quote me?';
+const DEFAULT_WHATSAPP_MESSAGE = 'Hello Noah, I need a shipping quote.';
 
 function getWhatsAppUrl(message = DEFAULT_WHATSAPP_MESSAGE) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message || DEFAULT_WHATSAPP_MESSAGE)}`;
@@ -43,7 +43,7 @@ function buildQuoteMessage(form) {
   };
 
   return [
-    'Hello HC Freight, I would like a DDP door-to-door shipping quote from China.',
+    'Hello Noah, I need a shipping quote.',
     '',
     `Name: ${get('name')}`,
     `Contact: ${get('contact')}`,
