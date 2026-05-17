@@ -1,0 +1,22 @@
+# Future SEO landing page template
+
+Use this template when adding one country page at a time.
+
+File name:
+china-to-[country]-shipping.html
+
+Rule:
+- Do not list other countries on the page.
+- Keep the page focused on one destination.
+- Link only to Home, Services, Contact and FAQ.
+- Add the new page to sitemap.xml.
+- Submit the new URL in Google Search Console.
+
+Recommended title:
+Shipping from China to [Country] | Door-to-Door Shipping | DoorHC
+
+Recommended H1:
+Shipping from China to [Country]
+
+WhatsApp message:
+Hello Noah, I need a China to [Country] shipping quote.
