@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact HC Freight | Shipping Quote from China</title>
-  <meta name="description" content="Contact HC Freight by WhatsApp or Email for China freight quotes, DDP shipping, warehouse receiving, packing and Amazon FBA delivery support." />
+  <title>Contact HC Freight | DDP Shipping Quote from China</title>
+  <meta name="description" content="Contact HC Freight by WhatsApp or Email for DDP shipping quotes from China to a home, office, warehouse or Amazon FBA address." />
+  <link rel="canonical" href="https://www.doorhc.com/contact" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Google tag (gtag.js) - kept for analytics / Google Ads conversion paths -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGH7EBZQD2"></script>
@@ -43,33 +44,33 @@
 </head>
 <body>
   <div class="topbar">
-    <div class="container"><div>China-based freight forwarder · Air · Sea · Express · DDP door-to-door</div><div>WhatsApp: +86 195 6438 0551 · Email: inkovnoah@gmail.com</div></div>
+    <div class="container"><div>China-based freight team · DDP door-to-door · Home / Office / Warehouse / FBA delivery</div><div>WhatsApp: +86 195 6438 0551 · Email: inkovnoah@gmail.com</div></div>
   </div>
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="HC Freight home"><span class="brand-mark">HC</span><span>HC Freight</span></a>
-      <nav class="nav-links" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="tracking.html">Tracking</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a class="active" href="contact.html">Contact</a></nav>
+      <a class="brand" href="/" aria-label="HC Freight home"><span class="brand-mark">HC</span><span>HC Freight</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="/">Home</a><a href="/services">Services</a><a href="/tracking">Tracking</a><a href="/about">About</a><a href="/faq">FAQ</a><a class="active" href="/contact">Contact</a></nav>
       <div class="nav-cta">
         <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('header_email_click')">Email</a>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('header_whatsapp_click')">WhatsApp</a>
         <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="tracking.html">Tracking</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a class="active" href="contact.html">Contact</a></nav>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="/">Home</a><a href="/services">Services</a><a href="/tracking">Tracking</a><a href="/about">About</a><a href="/faq">FAQ</a><a class="active" href="/contact">Contact</a></nav>
   </header>
 
 <main>
   <section class="hero slim"><img class="hero-img" src="assets/images/express-dock.jpg" alt="Contact HC Freight for shipping quote"><div class="container hero-content"><div><div class="eyebrow"><span></span> Contact HC Freight</div><h1>Send your cargo details by Email or WhatsApp.</h1><p>WhatsApp is fastest for photos and short questions. Email is better for packing lists, invoices, FBA details and complete shipment files.</p><div class="hero-actions"><a class="btn btn-primary" href="#quoteForm">Send Quote Request</a><a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('contact_hero_email')">Email Us</a><a class="btn btn-light" href="javascript:void(0)" onclick="openWhatsApp('contact_hero_whatsapp')">WhatsApp Us</a></div></div><aside class="quote-card"><h2>Direct contact</h2><div class="contact-list"><a href="javascript:void(0)" onclick="openWhatsApp('contact_card_whatsapp')"><strong>WhatsApp</strong><br>+86 195 6438 0551</a><a href="mailto:inkovnoah@gmail.com" onclick="trackContact('contact_card_email')"><strong>Email</strong><br>inkovnoah@gmail.com</a><div><strong>Useful details</strong><br>Product, photos, carton size, weight, supplier city, destination ZIP code.</div></div></aside></div></section>
-  <section class="bg" id="quoteForm"><div class="container quote-wrap"><div class="quote-info"><span class="mini-label">Quote request</span><h2>What to include for faster reply.</h2><p>More complete details help us check route, restrictions and cost more accurately.</p><ul class="check-list"><li>Destination country, city and ZIP code</li><li>Product name and product photos</li><li>Carton quantity, dimensions and gross weight</li><li>Supplier city or pickup address in China</li><li>Special cargo details: battery, liquid, powder, magnet or brand</li></ul></div><div class="quote-form"><h2>Send shipment details</h2><form class="form-grid" data-form-name="contact_quote" onsubmit="sendWhatsAppQuote(event)">
+  <section class="bg" id="quoteForm"><div class="container quote-wrap"><div class="quote-info"><span class="mini-label">Quote request</span><h2>What to include for faster reply.</h2><p>More complete details help us check DDP availability, delivery restrictions and cost more accurately.</p><ul class="check-list"><li>Delivery country, city and ZIP code</li><li>Product name and product photos</li><li>Carton quantity, dimensions and gross weight</li><li>Supplier city or pickup address in China</li><li>Special cargo details: battery, liquid, powder, magnet or brand</li></ul></div><div class="quote-form"><h2>Send shipment details</h2><form class="form-grid" data-form-name="contact_quote" onsubmit="sendWhatsAppQuote(event)">
   <div class="form-2"><input name="name" placeholder="Your name" required /><input name="contact" placeholder="WhatsApp / Email" required /></div>
-  <input name="destination" placeholder="Destination country / city / ZIP code" required />
+  <input name="destination" placeholder="Delivery country / city / ZIP code" required />
   <div class="form-2"><select name="method"><option selected>Not sure yet</option><option>Air Freight DDP</option><option>Sea Freight DDP</option><option>Express Shipping</option></select><input name="cargo" placeholder="Cargo type" /></div>
   <textarea name="details" placeholder="Cartons, size, weight, supplier city, product details, battery/liquid/powder/brand details if any..." required></textarea>
   <div class="quote-actions"><button class="btn btn-primary" type="submit">Send by WhatsApp</button><button class="btn btn-ghost" type="button" onclick="sendEmailQuote(this)">Send by Email</button></div>
 </form></div></div></section>
-  <section><div class="container"><div class="section-head"><h2>Which contact method should you use?</h2><p>Both work. Choose based on how much information you need to send.</p></div><div class="grid-3"><div class="card pad"><h3>Use WhatsApp for</h3><ul class="check-list"><li>Fast route questions</li><li>Product photos</li><li>Short cargo details</li><li>Delivery update questions</li></ul></div><div class="card pad"><h3>Use Email for</h3><ul class="check-list"><li>Packing lists</li><li>Invoices</li><li>FBA shipment files</li><li>Long cargo lists or multiple suppliers</li></ul></div><div class="card pad"><h3>Use Tracking for</h3><ul class="check-list"><li>Checking tracking number</li><li>Delayed update questions</li><li>Shipment status follow-up</li><li>Carrier transfer updates</li></ul><br><a class="btn btn-ghost" href="tracking.html">Track shipment</a></div></div></div></section>
+  <section><div class="container"><div class="section-head"><h2>Which contact method should you use?</h2><p>Both work. Choose based on how much information you need to send.</p></div><div class="grid-3"><div class="card pad"><h3>Use WhatsApp for</h3><ul class="check-list"><li>Fast delivery questions</li><li>Product photos</li><li>Short cargo details</li><li>Delivery update questions</li></ul></div><div class="card pad"><h3>Use Email for</h3><ul class="check-list"><li>Packing lists</li><li>Invoices</li><li>FBA shipment files</li><li>Long cargo lists or multiple suppliers</li></ul></div><div class="card pad"><h3>Use Tracking for</h3><ul class="check-list"><li>Checking tracking number</li><li>Delayed update questions</li><li>Shipment status follow-up</li><li>Carrier transfer updates</li></ul><br><a class="btn btn-ghost" href="/tracking">Track shipment</a></div></div></div></section>
 </main>
-  <footer class="footer"><div class="container footer-grid"><div><h3>HC Freight</h3><p>Door-to-door shipping from China by air, sea, express and DDP. Warehouse receiving, inspection, packing, labeling and Amazon FBA support.</p></div><div><h4>Services</h4><p><a href="services.html">Air Freight DDP</a><br><a href="services.html">Sea Freight DDP</a><br><a href="services.html">Express Shipping</a><br><a href="services.html">Amazon FBA Support</a></p></div><div><h4>Company</h4><p><a href="about.html">About</a><br><a href="faq.html">FAQ</a><br><a href="tracking.html">Tracking</a><br><a href="contact.html">Contact</a></p></div><div><h4>Contact</h4><p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com<br>Yiwu, China warehouse support</p></div></div></footer>
+  <footer class="footer"><div class="container footer-grid"><div><h3>HC Freight</h3><p>DDP door-to-door shipping from China to your home, office, warehouse or Amazon FBA address. Warehouse receiving, inspection, packing, labeling and consolidation support.</p></div><div><h4>Services</h4><p><a href="/services">Air Freight DDP</a><br><a href="/services">Sea Freight DDP</a><br><a href="/services">Express Shipping</a><br><a href="/services">Amazon FBA Support</a></p></div><div><h4>Company</h4><p><a href="/about">About</a><br><a href="/faq">FAQ</a><br><a href="/tracking">Tracking</a><br><a href="/contact">Contact</a></p></div><div><h4>Contact</h4><p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com<br>Yiwu, China warehouse support</p></div></div></footer>
   <div class="mobile-bar"><a class="btn btn-primary" href="#quoteForm">Free Quote</a><a class="btn btn-dark" href="javascript:void(0)" onclick="openWhatsApp('mobile_whatsapp_click')">WhatsApp</a></div>
   <script src="assets/js/site.js"></script>
 

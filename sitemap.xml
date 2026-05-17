@@ -2,26 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.doorhc.com/</loc>
-    <lastmod>2026-05-17</lastmod>
   </url>
   <url>
     <loc>https://www.doorhc.com/services</loc>
-    <lastmod>2026-05-17</lastmod>
-  </url>
-  <url>
-    <loc>https://www.doorhc.com/about</loc>
-    <lastmod>2026-05-17</lastmod>
-  </url>
-  <url>
-    <loc>https://www.doorhc.com/faq</loc>
-    <lastmod>2026-05-17</lastmod>
   </url>
   <url>
     <loc>https://www.doorhc.com/contact</loc>
-    <lastmod>2026-05-17</lastmod>
+  </url>
+  <url>
+    <loc>https://www.doorhc.com/about</loc>
+  </url>
+  <url>
+    <loc>https://www.doorhc.com/faq</loc>
+  </url>
+  <url>
+    <loc>https://www.doorhc.com/tracking</loc>
   </url>
   <url>
     <loc>https://www.doorhc.com/china-to-usa-shipping.html</loc>
-    <lastmod>2026-05-17</lastmod>
   </url>
 </urlset>
