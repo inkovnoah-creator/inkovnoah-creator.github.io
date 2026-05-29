@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shipment Tracking from China | HC Freight</title>
-  <meta name="description" content="Track your HC Freight shipment. Enter one or more tracking numbers to open shipment updates in 17TRACK." />
-  <link rel="canonical" href="https://www.doorhc.com/tracking" />
-
-  <!-- Google tag (gtag.js) - kept for analytics / Google Ads conversion paths -->
+  <title>Shipment Tracking from China | Chenyi Freight</title>
+  <meta name="description" content="Track shipments handled by Chenyi Freight, operated by Yiwu Chenyi International Freight Agency Limited. Check air, sea and express tracking numbers." />
+  <link rel="canonical" href="https://www.doorhc.com/tracking.html" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGH7EBZQD2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,430 +15,110 @@
     gtag('config', 'G-SGH7EBZQD2');
   </script>
 
-  <link rel="preload" as="image" href="assets/images/warehouse-sorting.jpg" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-  <style>
-    .tracking-hero .hero-content {
-      grid-template-columns: 1fr .92fr;
-      min-height: 580px;
-      padding: 78px 0;
-    }
-    .tracking-panel {
-      background: rgba(255,255,255,.98);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.72);
-      border-radius: 30px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-    }
-    .tracking-panel h2 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      font-size: 30px;
-      letter-spacing: -.035em;
-      line-height: 1.15;
-    }
-    .tracking-panel p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .tracking-label {
-      display: block;
-      color: var(--navy);
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    .tracking-panel textarea {
-      min-height: 150px;
-      font-size: 16px;
-    }
-    .tracking-actions {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .status-box {
-      display: none;
-      margin-top: 14px;
-      padding: 13px 15px;
-      border-radius: 16px;
-      font-weight: 800;
-      font-size: 14px;
-    }
-    .status-box.show {
-      display: block;
-    }
-    .status-box.success {
-      background: #e9f8ef;
-      color: #0f6b3b;
-      border: 1px solid #bce9ca;
-    }
-    .status-box.error {
-      background: #fff1f1;
-      color: #b42318;
-      border: 1px solid #ffd1d1;
-    }
-    .tracking-note {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .tracking-mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 30px;
-    }
-    .tracking-mini {
-      padding: 15px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.16);
-      color: #eff6ff;
-      font-weight: 800;
-    }
-    .support-band {
-      background: linear-gradient(135deg, var(--navy), var(--navy2));
-      color: #fff;
-      border-radius: 30px;
-      padding: 34px;
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      align-items: center;
-      gap: 14px;
-      box-shadow: var(--shadow);
-    }
-    .support-band h2 {
-      margin: 0 0 8px;
-      font-size: clamp(28px, 4vw, 42px);
-      letter-spacing: -.04em;
-      line-height: 1.08;
-    }
-    .support-band p {
-      margin: 0;
-      color: #dbeafe;
-      max-width: 720px;
-    }
-    @media(max-width:950px) {
-      .tracking-hero .hero-content {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      .support-band {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media(max-width:600px) {
-      .tracking-panel {
-        padding: 22px;
-      }
-      .tracking-actions,
-      .tracking-mini-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-  <style id="hc-mobile-nav-fix">
-    .mobile-menu { display: none !important; }
-    .menu-toggle { display: none !important; appearance: none; border: 1px solid #dbe5ef; background: #fff; color: #07182f; border-radius: 999px; width: 48px; height: 48px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; box-shadow: 0 10px 30px rgba(8, 31, 65, .08); }
-    .menu-toggle span { display: block; width: 19px; height: 2px; background: #07182f; border-radius: 999px; margin: 0; }
-    @media (max-width: 900px) {
-      .topbar { display: none !important; }
-      .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.96); backdrop-filter: blur(16px); border-bottom: 1px solid #e6edf5; }
-      .header .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-      .nav-links { display: none !important; }
-      .nav-cta { display: flex; align-items: center; gap: 10px; }
-      .nav-cta .btn-ghost { display: none !important; }
-      .nav-cta .btn-primary { padding: 12px 18px; font-size: 14px; }
-      .menu-toggle { display: inline-flex !important; flex: 0 0 auto; }
-      .mobile-menu { position: absolute; left: 14px; right: 14px; top: calc(100% + 8px); z-index: 1001; background: #ffffff; border: 1px solid #dbe5ef; border-radius: 20px; padding: 10px; box-shadow: 0 24px 70px rgba(8,31,65,.18); flex-direction: column; gap: 4px; }
-      .mobile-menu.is-open { display: flex !important; }
-      .mobile-menu a { display: block; padding: 14px 16px; border-radius: 14px; color: #07182f; font-weight: 800; text-decoration: none; }
-      .mobile-menu a.active, .mobile-menu a:hover { background: #edf5ff; color: #1769ff; }
-      .brand span:last-child { font-size: 17px; }
-      .brand-mark { width: 42px; height: 42px; }
-    }
-    @media (min-width: 901px) {
-      .mobile-menu, .mobile-menu.is-open, .menu-toggle { display: none !important; }
-    }
+  <style id="chenyi-mobile-nav-fix">
+  .mobile-menu { display: none !important; }
+  .menu-toggle { display: none !important; appearance: none; border: 1px solid #dbe5ef; background: #fff; color: #07182f; border-radius: 999px; width: 48px; height: 48px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; box-shadow: 0 10px 30px rgba(8, 31, 65, .08); }
+  .menu-toggle span { display: block; width: 19px; height: 2px; background: #07182f; border-radius: 999px; margin: 0; }
+  @media (max-width: 900px) {
+    .topbar { display: none !important; }
+    .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.96); backdrop-filter: blur(16px); border-bottom: 1px solid #e6edf5; }
+    .header .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-links { display: none !important; }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .nav-cta .btn-ghost { display: none !important; }
+    .nav-cta .btn-primary { padding: 12px 18px; font-size: 14px; }
+    .menu-toggle { display: inline-flex !important; flex: 0 0 auto; }
+    .mobile-menu { position: absolute; left: 14px; right: 14px; top: calc(100% + 8px); z-index: 1001; background: #ffffff; border: 1px solid #dbe5ef; border-radius: 20px; padding: 10px; box-shadow: 0 24px 70px rgba(8,31,65,.18); flex-direction: column; gap: 4px; }
+    .mobile-menu.is-open { display: flex !important; }
+    .mobile-menu a { display: block; padding: 14px 16px; border-radius: 14px; color: #07182f; font-weight: 800; text-decoration: none; }
+    .mobile-menu a.active, .mobile-menu a:hover { background: #edf5ff; color: #1769ff; }
+    .brand span:last-child { font-size: 17px; }
+    .brand-mark { width: 42px; height: 42px; }
+  }
+  @media (min-width: 901px) {
+    .mobile-menu, .mobile-menu.is-open, .menu-toggle { display: none !important; }
+  }
   </style>
 
 </head>
-
 <body>
+
   <div class="topbar">
     <div class="container">
-      <div>China-based freight team · DDP door-to-door · Home / Office / Warehouse / FBA delivery</div>
+      <div>China-based freight forwarding team · DDP door-to-door options · Home / Office / Warehouse / FBA delivery</div>
       <div>WhatsApp: +86 195 6438 0551 · Email: inkovnoah@gmail.com</div>
     </div>
   </div>
-
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="/" aria-label="HC Freight home"><span class="brand-mark">HC</span><span>HC Freight</span></a>
-      <nav class="nav-links" aria-label="Main navigation"><a href="/">Home</a><a href="/services">Services</a><a class="active" href="/tracking">Tracking</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
+      <a class="brand" href="/" aria-label="Chenyi Freight home"><span class="brand-mark">CY</span><span>Chenyi Freight</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a class="" href="/">Home</a><a class="" href="/services">Services</a><a class="active" href="/tracking">Tracking</a><a class="" href="/about">About</a><a class="" href="/faq">FAQ</a><a class="" href="/contact">Contact</a></nav>
       <div class="nav-cta">
         <a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com" onclick="trackContact('header_email_click')">Email</a>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('header_whatsapp_click')">WhatsApp</a>
         <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="/">Home</a><a href="/services">Services</a><a class="active" href="/tracking">Tracking</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></nav>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a class="" href="/">Home</a><a class="" href="/services">Services</a><a class="active" href="/tracking">Tracking</a><a class="" href="/about">About</a><a class="" href="/faq">FAQ</a><a class="" href="/contact">Contact</a></nav>
   </header>
 
-  <main>
-    <section class="hero tracking-hero">
-      <img class="hero-img" src="assets/images/warehouse-sorting.jpg" alt="Shipment tracking support in a logistics warehouse" />
-      <div class="container hero-content">
-        <div>
-          <div class="eyebrow"><span></span> HC Freight Shipment Tracking</div>
-          <h1>Track your shipment from China to final delivery.</h1>
-          <p>Enter your HC Freight tracking number below. You can check up to 10 shipments at once. The tracking result will open in a new 17TRACK window.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#trackingBox">Track Now</a>
-            <a class="btn btn-light" href="javascript:void(0)" onclick="openWhatsApp('tracking_hero_whatsapp')">Ask by WhatsApp</a>
-          </div>
-          <div class="tracking-mini-grid">
-            <div class="tracking-mini">Multiple numbers supported</div>
-            <div class="tracking-mini">Air, sea and express updates</div>
-            <div class="tracking-mini">17TRACK result window</div>
-            <div class="tracking-mini">WhatsApp help if delayed</div>
-          </div>
-        </div>
-
-        <aside class="tracking-panel" id="trackingBox">
-          <h2>Track Your Shipment</h2>
-          <p>Enter one tracking number per line, or separate numbers by commas, spaces or semicolons.</p>
-
-          <form onsubmit="trackShipment(event)">
-            <label class="tracking-label" for="trackingNumbers">Tracking numbers</label>
-            <textarea id="trackingNumbers" placeholder="Example: 1Z0368FC0306991805" autocomplete="off" required></textarea>
-
-            <div class="tracking-actions">
-              <button class="btn btn-primary" type="submit">Track Now</button>
-              <button class="btn btn-ghost" type="button" onclick="clearTracking()">Clear</button>
-            </div>
-
-            <div id="statusBox" class="status-box" role="status" aria-live="polite"></div>
-            <div class="tracking-note">Maximum 10 tracking numbers per search.</div>
-          </form>
-        </aside>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>How to use shipment tracking.</h2>
-          <p>Tracking information may take time to update after pickup, customs clearance or transfer to a local delivery carrier.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="step">
-            <span class="num">01</span>
-            <h3>Enter tracking number</h3>
-            <p>Copy your HC Freight tracking number into the box. You can enter multiple numbers at the same time.</p>
-          </div>
-          <div class="step">
-            <span class="num">02</span>
-            <h3>Open tracking result</h3>
-            <p>Click Track Now. Your tracking details will open in a new 17TRACK window for shipment updates.</p>
-          </div>
-          <div class="step">
-            <span class="num">03</span>
-            <h3>Need help?</h3>
-            <p>If tracking does not update, send us your tracking number and we will help check the shipment status.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg">
-      <div class="container">
-        <div class="section-head">
-          <h2>Tracking FAQ</h2>
-          <p>Common questions when checking shipment updates from China to final delivery.</p>
-        </div>
-
-        <div class="faq-list">
-          <details open>
-            <summary>Why is my tracking number not showing updates?</summary>
-            <p>Tracking updates may take time to appear after shipment pickup, warehouse processing, customs clearance or transfer to the final delivery carrier. Please check again later or contact us with your tracking number.</p>
-          </details>
-          <details>
-            <summary>How many tracking numbers can I check at once?</summary>
-            <p>You can enter up to 10 tracking numbers at once. Use one number per line, or separate numbers by commas, spaces or semicolons.</p>
-          </details>
-          <details>
-            <summary>What should I do if the tracking result looks delayed?</summary>
-            <p>Some shipments may have slower updates during customs clearance, flight or sea departure, port processing or local delivery transfer. Send us your tracking number and we can help check the status.</p>
-          </details>
-          <details>
-            <summary>Can I track air, sea and express shipments here?</summary>
-            <p>Yes. You can use this page to check tracking numbers for air freight, sea freight and express shipments handled by HC Freight.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="support-band">
-          <div>
-            <h2>Need help with your tracking number?</h2>
-            <p>Send your tracking number to us by WhatsApp or email. We will help check the shipment status.</p>
-          </div>
-          <a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('tracking_support_whatsapp')">WhatsApp Us</a>
-          <a class="btn btn-light" href="mailto:inkovnoah@gmail.com" onclick="trackContact('tracking_support_email')">Email Us</a>
-        </div>
-      </div>
-    </section>
-  </main>
+<main>
+  <section class="hero hero-brand slim"><img class="hero-img" src="assets/images/express-dock.jpg" alt="Shipment tracking support in a logistics warehouse"><div class="container hero-content"><div><div class="eyebrow"><span></span> Chenyi Freight Shipment Tracking</div><h1>Track your shipment from China to final delivery.</h1><p>Enter your Chenyi Freight tracking number below. You can check up to 10 shipments at once. The tracking result will open in a new 17TRACK window.</p><div class="hero-actions"><a class="btn btn-primary" href="#trackingBox">Track Now</a><a class="btn btn-light" href="javascript:void(0)" onclick="openWhatsApp('tracking_hero_whatsapp_click')">Ask by WhatsApp</a></div><div class="trust-row"><div class="trust-item">Multiple numbers supported</div><div class="trust-item">Air, sea and express updates</div><div class="trust-item">17TRACK result window</div><div class="trust-item">WhatsApp help if delayed</div></div></div></div></section>
+  <section id="trackingBox"><div class="container"><div class="quote-form"><h2>Track Your Shipment</h2><p>Enter one tracking number per line, or separate numbers by commas, spaces or semicolons.</p><form class="form-grid" onsubmit="trackShipment(event)"><textarea id="trackingNumbers" name="trackingNumbers" placeholder="Tracking numbers" required></textarea><div class="quote-actions"><button class="btn btn-primary" type="submit">Track Now</button><button class="btn btn-ghost" type="button" onclick="document.getElementById('trackingNumbers').value=''">Clear</button></div><p class="comparison-note">Maximum 10 tracking numbers per search.</p></form></div></div></section>
+  <section class="bg"><div class="container"><div class="section-head"><h2>How to use shipment tracking.</h2><p>Tracking information may take time to update after pickup, customs clearance or transfer to a local delivery carrier.</p></div><div class="grid-3"><div class="step"><span class="num">01</span><h3>Enter tracking number</h3><p>Copy your Chenyi Freight tracking number into the box. You can enter multiple numbers at the same time.</p></div><div class="step"><span class="num">02</span><h3>Open tracking result</h3><p>Click Track Now. Your tracking details will open in a new 17TRACK window for shipment updates.</p></div><div class="step"><span class="num">03</span><h3>Need help?</h3><p>If tracking does not update, send us your tracking number and we will help check the shipment status.</p></div></div></div></section>
+  <section><div class="container"><div class="section-head"><h2>Tracking FAQ</h2><p>Common questions when checking shipment updates from China to final delivery.</p></div><div class="faq-list"><details open><summary>Why is my tracking number not showing updates?</summary><p>Tracking updates may take time to appear after shipment pickup, warehouse processing, customs clearance or transfer to the final delivery carrier. Please check again later or contact us with your tracking number.</p></details><details><summary>How many tracking numbers can I check at once?</summary><p>You can enter up to 10 tracking numbers at once. Use one number per line, or separate numbers by commas, spaces or semicolons.</p></details><details><summary>What should I do if the tracking result looks delayed?</summary><p>Some shipments may have slower updates during customs clearance, flight or sea departure, port processing or local delivery transfer. Send us your tracking number and we can help check the status.</p></details><details><summary>Can I track air, sea and express shipments here?</summary><p>Yes. You can use this page to check tracking numbers for air freight, sea freight and express shipments handled by Chenyi Freight.</p></details></div></div></section>
+  <section class="quote-section"><div class="container quote-wrap"><div class="quote-info"><span class="mini-label">Need help?</span><h2>Need help with your tracking number?</h2><p>Send your tracking number to us by WhatsApp or email. We will help check the shipment status.</p></div><div class="quote-form"><h2>Contact for tracking support</h2><p><strong>WhatsApp:</strong> +86 195 6438 0551</p><p><strong>Email:</strong> inkovnoah@gmail.com</p><div class="quote-actions"><a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp('tracking_help_whatsapp_click')">WhatsApp Us</a><a class="btn btn-ghost" href="mailto:inkovnoah@gmail.com">Email Us</a></div></div></div></section>
+</main>
 
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <h3>HC Freight</h3>
-        <p>DDP door-to-door shipping from China to your home, office, warehouse or Amazon FBA address. Warehouse receiving, inspection, packing, labeling and consolidation support.</p>
+        <h3>Chenyi Freight</h3>
+        <p>China-based freight forwarding support operated by Yiwu Chenyi International Freight Agency Limited. We help with supplier pickup, warehouse receiving, checking, repacking, consolidation, air freight, sea freight, express shipping and DDP delivery options when available.</p>
       </div>
       <div>
         <h4>Services</h4>
-        <p><a href="/services">Air Freight DDP</a><br><a href="/services">Sea Freight DDP</a><br><a href="/services">Express Shipping</a></p>
+        <p><a href="/services">Air Freight DDP</a><br><a href="/services">Sea Freight DDP</a><br><a href="/services">Express Shipping</a><br><a href="/services">Warehouse Support</a></p>
       </div>
       <div>
         <h4>Company</h4>
-        <p><a href="/about">About</a><br><a href="/faq">FAQ</a><br><a href="/tracking">Tracking</a></p>
+        <p><a href="/about">About</a><br><a href="/faq">FAQ</a><br><a href="/tracking">Tracking</a><br><a href="/contact">Contact</a></p>
       </div>
       <div>
         <h4>Contact</h4>
-        <p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com</p>
+        <p>WhatsApp: +86 195 6438 0551<br>Email: inkovnoah@gmail.com<br>Company: Yiwu Chenyi International Freight Agency Limited<br>Location: Yiwu, Zhejiang, China</p>
       </div>
     </div>
   </footer>
-
-  <div class="mobile-bar">
-    <a class="btn btn-primary" href="#trackingBox">Track Now</a>
-    <a class="btn btn-dark" href="javascript:void(0)" onclick="openWhatsApp('mobile_tracking_whatsapp')">WhatsApp</a>
-  </div>
-
+  <div class="mobile-bar"><a class="btn btn-primary" href="#trackingBox">Track Now</a><a class="btn btn-dark" href="javascript:void(0)" onclick="openWhatsApp('mobile_whatsapp_click')">WhatsApp</a></div>
   <script src="assets/js/site.js"></script>
-  <script>
-    const MAX_TRACKING_NUMBERS = 10;
-    const FORWARDER_CODE = '191909';
 
-    function parseTrackingNumbers(input) {
-      const rawNumbers = input
-        .split(/[\s,;]+/)
-        .map(function(number) {
-          return number.trim();
-        })
-        .filter(function(number) {
-          return number !== '';
-        });
-
-      const uniqueNumbers = [];
-      rawNumbers.forEach(function(number) {
-        if (!uniqueNumbers.includes(number)) {
-          uniqueNumbers.push(number);
+  <script id="chenyi-mobile-nav-script">
+  (function () {
+    function closeAllMenus() {
+      document.querySelectorAll('.mobile-menu.is-open').forEach(function (menu) { menu.classList.remove('is-open'); });
+      document.querySelectorAll('.menu-toggle[aria-expanded="true"]').forEach(function (btn) { btn.setAttribute('aria-expanded', 'false'); });
+    }
+    document.querySelectorAll('.menu-toggle').forEach(function (btn) {
+      var header = btn.closest('.header') || document;
+      var menuId = btn.getAttribute('aria-controls');
+      var menu = menuId ? document.getElementById(menuId) : header.querySelector('.mobile-menu');
+      if (!menu) return;
+      btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var willOpen = !menu.classList.contains('is-open');
+        closeAllMenus();
+        if (willOpen) {
+          menu.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
         }
       });
-
-      return uniqueNumbers;
-    }
-
-    function showStatus(message, type) {
-      const statusBox = document.getElementById('statusBox');
-      statusBox.textContent = message;
-      statusBox.className = 'status-box show ' + type;
-    }
-
-    function trackShipment(event) {
-      if (event) {
-        event.preventDefault();
-      }
-
-      const input = document.getElementById('trackingNumbers').value.trim();
-
-      if (!input) {
-        showStatus('Please enter at least one tracking number.', 'error');
-        return;
-      }
-
-      const numbers = parseTrackingNumbers(input);
-
-      if (numbers.length === 0) {
-        showStatus('Please enter at least one valid tracking number.', 'error');
-        return;
-      }
-
-      if (numbers.length > MAX_TRACKING_NUMBERS) {
-        showStatus('Maximum 10 tracking numbers allowed. Please remove extra numbers and try again.', 'error');
-        return;
-      }
-
-      const query = numbers.map(encodeURIComponent).join(',');
-      const url = 'https://t.17track.net/en#nums=' + query + '&fc=' + FORWARDER_CODE;
-
-      showStatus('Opening tracking result for ' + numbers.length + ' shipment(s)...', 'success');
-
-      if (typeof trackContact === 'function') {
-        trackContact('tracking_submit', {
-          tracking_count: numbers.length,
-          tracking_provider: '17track'
-        });
-      }
-
-      window.open(url, '_blank');
-    }
-
-    function clearTracking() {
-      document.getElementById('trackingNumbers').value = '';
-      const statusBox = document.getElementById('statusBox');
-      statusBox.textContent = '';
-      statusBox.className = 'status-box';
-    }
-  </script>
-
-  <script id="hc-mobile-nav-script">
-    (function () {
-      function closeAllMenus() {
-        document.querySelectorAll('.mobile-menu.is-open').forEach(function (menu) {
-          menu.classList.remove('is-open');
-        });
-        document.querySelectorAll('.menu-toggle[aria-expanded="true"]').forEach(function (btn) {
-          btn.setAttribute('aria-expanded', 'false');
-        });
-      }
-      document.querySelectorAll('.menu-toggle').forEach(function (btn) {
-        var header = btn.closest('.header') || document;
-        var menuId = btn.getAttribute('aria-controls');
-        var menu = menuId ? document.getElementById(menuId) : header.querySelector('.mobile-menu');
-        if (!menu) return;
-        btn.addEventListener('click', function (event) {
-          event.preventDefault();
-          event.stopPropagation();
-          var willOpen = !menu.classList.contains('is-open');
-          closeAllMenus();
-          if (willOpen) {
-            menu.classList.add('is-open');
-            btn.setAttribute('aria-expanded', 'true');
-          }
-        });
-        menu.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', closeAllMenus);
-        });
-      });
-      document.addEventListener('click', function (event) {
-        if (!event.target.closest('.header')) closeAllMenus();
-      });
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 900) closeAllMenus();
-      });
-    })();
+      menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeAllMenus); });
+    });
+    document.addEventListener('click', function (event) { if (!event.target.closest('.header')) closeAllMenus(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 900) closeAllMenus(); });
+  })();
   </script>
 
 </body>

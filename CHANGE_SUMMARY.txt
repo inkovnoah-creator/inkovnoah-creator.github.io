@@ -1,14 +1,29 @@
-Modified pages only:
-- index.html
-- china-to-usa-shipping.html
-- about.html
-- contact.html
+DoorHC / Chenyi Freight full brand update
 
-Other pages/assets were not included or changed.
+Updated identity:
+- Brand: Chenyi Freight
+- Company: Yiwu Chenyi International Freight Agency Limited
+- Chinese company name: 义乌市辰沂国际货运代理有限公司
 
-Main changes:
-- Brand changed to Chenyi Freight
-- Company identity centered around Yiwu Chenyi International Freight Agency Limited / 义乌市辰沂国际货运代理有限公司
-- Added company/payment notice
-- Kept current Gmail and WhatsApp
-- Kept existing CSS/JS/image asset paths
+Included:
+- services.html
+- faq.html
+- tracking.html
+- thank-you.html
+- 404.html
+- All country/corridor pages including Europe pages
+- Both root .html pages and matching directory index.html pages for country pages
+
+Not included:
+- assets/css/style.css
+- assets/js/site.js
+- images
+- CNAME
+- robots.txt
+
+Upload method:
+1. Unzip this package.
+2. Upload all files and folders inside the unzipped folder to the GitHub repository root.
+3. Let GitHub overwrite same-name files.
+4. Commit message suggestion:
+   Update remaining pages to Chenyi Freight
