@@ -1,0 +1,14 @@
+Modified pages only:
+- index.html
+- china-to-usa-shipping.html
+- about.html
+- contact.html
+
+Other pages/assets were not included or changed.
+
+Main changes:
+- Brand changed to Chenyi Freight
+- Company identity centered around Yiwu Chenyi International Freight Agency Limited / 义乌市辰沂国际货运代理有限公司
+- Added company/payment notice
+- Kept current Gmail and WhatsApp
+- Kept existing CSS/JS/image asset paths
