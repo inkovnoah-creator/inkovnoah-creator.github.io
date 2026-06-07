@@ -1,4 +1,28 @@
 User-agent: *
 Allow: /
 
+# OpenAI search and user-request access
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Google Search and Gemini-related access
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Claude search and user-request access
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+
+# Perplexity search and user-request access
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
 Sitemap: https://www.doorhc.com/sitemap.xml

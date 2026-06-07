@@ -1,0 +1,1347 @@
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: priority_markets
+    label: Priority markets
+    type: group
+    items:
+      - name: usa_guides
+        label: USA Guides
+        type: collection
+        path: content/guides/usa
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: uk_guides
+        label: UK Guides
+        type: collection
+        path: content/guides/uk
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: europe_guides
+        label: Europe Guides
+        type: collection
+        path: content/guides/europe
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: germany_guides
+        label: Germany Guides
+        type: collection
+        path: content/guides/germany
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: france_guides
+        label: France Guides
+        type: collection
+        path: content/guides/france
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: australia_guides
+        label: Australia Guides
+        type: collection
+        path: content/guides/australia
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+  - name: additional_markets
+    label: Additional markets
+    type: group
+    items:
+      - name: spain_guides
+        label: Spain Guides
+        type: collection
+        path: content/guides/spain
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: italy_guides
+        label: Italy Guides
+        type: collection
+        path: content/guides/italy
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: netherlands_guides
+        label: Netherlands Guides
+        type: collection
+        path: content/guides/netherlands
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: poland_guides
+        label: Poland Guides
+        type: collection
+        path: content/guides/poland
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: belgium_guides
+        label: Belgium Guides
+        type: collection
+        path: content/guides/belgium
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: austria_guides
+        label: Austria Guides
+        type: collection
+        path: content/guides/austria
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: czech-republic_guides
+        label: Czech Republic Guides
+        type: collection
+        path: content/guides/czech-republic
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: denmark_guides
+        label: Denmark Guides
+        type: collection
+        path: content/guides/denmark
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: sweden_guides
+        label: Sweden Guides
+        type: collection
+        path: content/guides/sweden
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: romania_guides
+        label: Romania Guides
+        type: collection
+        path: content/guides/romania
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: ireland_guides
+        label: Ireland Guides
+        type: collection
+        path: content/guides/ireland
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: portugal_guides
+        label: Portugal Guides
+        type: collection
+        path: content/guides/portugal
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: finland_guides
+        label: Finland Guides
+        type: collection
+        path: content/guides/finland
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: croatia_guides
+        label: Croatia Guides
+        type: collection
+        path: content/guides/croatia
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: slovenia_guides
+        label: Slovenia Guides
+        type: collection
+        path: content/guides/slovenia
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: greece_guides
+        label: Greece Guides
+        type: collection
+        path: content/guides/greece
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: slovakia_guides
+        label: Slovakia Guides
+        type: collection
+        path: content/guides/slovakia
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: bulgaria_guides
+        label: Bulgaria Guides
+        type: collection
+        path: content/guides/bulgaria
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: lithuania_guides
+        label: Lithuania Guides
+        type: collection
+        path: content/guides/lithuania
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: hungary_guides
+        label: Hungary Guides
+        type: collection
+        path: content/guides/hungary
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: estonia_guides
+        label: Estonia Guides
+        type: collection
+        path: content/guides/estonia
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: latvia_guides
+        label: Latvia Guides
+        type: collection
+        path: content/guides/latvia
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
+      - name: luxembourg_guides
+        label: Luxembourg Guides
+        type: collection
+        path: content/guides/luxembourg
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: [".gitkeep"]
+        view:
+          primary: title
+          fields: [published, date, featured]
+          sort: date
+          order: desc
+        fields:
+          - name: title
+            label: Article title
+            type: string
+            required: true
+          - name: description
+            label: Short introduction
+            type: text
+            required: true
+          - name: seo_title
+            label: SEO title
+            type: string
+            required: true
+          - name: seo_description
+            label: SEO description
+            type: text
+            required: true
+          - name: date
+            label: Publish date
+            type: date
+            required: true
+          - name: updated
+            label: Updated date
+            type: date
+          - name: featured
+            label: Featured article
+            type: boolean
+          - name: published
+            label: Publish on website
+            type: boolean
+          - name: body
+            label: Article content
+            type: rich-text
+            required: true
