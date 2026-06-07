@@ -190,7 +190,7 @@ def generate_guides(markets, guides):
 
     for guide in guides:
         related = [item for item in by_market[guide["market"]] if item["url"] != guide["url"]]
-        related_html = guide_cards(related, 3) if related else '<p class="guide-empty">More practical guides will be added as we answer real shipment questions.</p>'
+        related_html = guide_cards(related, 3) if related else '<p class="guide-empty">Need help with your shipment? Send your cargo details and delivery address for a route recommendation.</p>'
         article_schema = jsonld({
             "@context": "https://schema.org", "@type": "Article",
             "headline": guide["title"], "description": guide["description"],
@@ -276,7 +276,7 @@ def inject_route_enhancements(markets, by_market):
       <div class="section-head">
         <span class="mini-label">Practical shipping knowledge</span>
         <h2>{html.escape(market['label'])} shipping guides.</h2>
-        <p>Clear answers based on common shipment questions. These guides focus only on shipping from China to {html.escape(market['label'])}.</p>
+        <p>Browse practical answers about routes, cargo preparation and delivery planning for shipments from China to {html.escape(market['label'])}.</p>
       </div>
       <div class="guide-grid">
 {guide_cards(items, 4)}
