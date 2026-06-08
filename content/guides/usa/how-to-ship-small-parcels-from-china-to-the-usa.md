@@ -9,8 +9,8 @@ seo_title: How to Ship Small Parcels from China to the USA | Chenyi Freight
 seo_description: Learn how to ship small parcels from China to the USA by
   express or air DDP, what cargo details are needed, and how consolidation can
   reduce shipping cost.
-date: 2026-03-08
-updated: 2026-03-08
+date: 2026-06-08
+updated: 2026-06-08
 featured: true
 published: true
 ---
